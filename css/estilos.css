@@ -1,0 +1,166 @@
+@charset 'UTF-8';
+body {
+  margin: 0;
+  background: #f7c800 url("../img/textura-amarilla.png") repeat center;
+}
+/*Animaciones*/
+@keyframes burbuja {
+  from {
+    rx: 250;
+    ry: 250;
+  }
+  to {
+    rx: 210;
+    ry: 210;
+  }
+}
+.section {
+  position: relative;
+}
+.lab_interno,
+.elementos_flotantes,
+.burbujas_sombra {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+.elementos_flotantes {
+  max-width: 1200px;
+  
+  left: 50%;
+  transform: translateX(-50%);
+}
+.lab_interno {
+  background: url("../img/textura-azul.png") repeat center;
+  z-index: 2;
+  
+}
+.burbujas_sombra {
+  top: -25px;
+  left: -25px;
+}
+.burbujas_sombra rect {
+  fill: #F2E2B8;
+  /*animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;*/
+}
+.burbujas rect {
+  /*animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;*/
+}
+.elementos_flotantes img {
+  position: absolute;
+}
+.lab_contenido {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  height: 100%;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 3;
+  display:flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 1600px) {
+  .lab_contenido, .elementos_flotantes{
+    max-width: 1425px;
+  }
+}
+.escena {
+  max-width: 100%;
+}
+/*Seccion 1*/
+#seccion_1 .lab_interno {
+  clip-path: url(#clip_1);
+}
+
+#clip_1_1,
+#clip_1_1s {
+  width: 950px;
+  y: 4vh;
+  height: 40vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 400px);
+  
+}
+#clip_1_2,
+#clip_1_2s {
+  width: 1100px;
+  y: 40vh;
+  height: 40vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 600px);
+}
+#clip_1_3,
+#clip_1_3s {
+  width: 900px;
+  y: 55vh;
+  height: 35vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 250px);
+}
+#clip_1_4,
+#clip_1_4s {
+  width: 45vh;
+  y: 70vh;
+  height: 45vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 300px);
+  
+}
+#seccion_1 img {
+  bottom: 180%
+}
+#seccion_1 .el_1_1 {
+  right: calc(100% - 200px);
+  top: -120px;
+}
+#seccion_1 .el_1_2 {
+  right: calc(100% - 220px);
+  top: 250px
+}
+#seccion_1 .el_1_3 {
+  right: calc(100% - 350px);
+  bottom: 0
+}
+#seccion_1 .el_moleculas {
+  right: 100%;
+  top: 20%
+}
+
+#seccion_1 .lab_contenido {
+  justify-content: flex-end;
+  
+}
+#seccion_1 .lab_contenido > div {
+  margin-bottom: 50px;
+}
+
+#escena {
+  posiiton: absolute;
+  height: 100%;
+  width: 100%;
+}
+#escena div.esc1 {
+  background: url("../img/textura-azul.png") repeat center;
+  position: absolute;
+  height: 120%;
+  width: 120%;
+  opacity: 1;
+}
+#escena div.esc2 {
+  content: '';
+  position: absolute;
+  height: 120%;
+  width: 120%;
+  background: url("../img/textura-formulas.png") repeat center;
+  opacity: .1
+
+}
+#escena div:nth-child(2) {
+  display: none;
+}
