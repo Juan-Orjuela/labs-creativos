@@ -3,20 +3,97 @@ body {
   margin: 0;
   background: #f7c800 url("../img/textura-amarilla.png") repeat center;
 }
+
 /*Animaciones*/
 @keyframes burbuja {
   from {
     rx: 250;
     ry: 250;
   }
+
   to {
     rx: 210;
     ry: 210;
   }
 }
+@keyframes llenarProbeta {
+  0% {
+    transform: translate(0, 100%);
+  }
+
+  100% {
+    transform: translate(0, 30%);
+  }
+}
+
+@keyframes ondasProbeta {
+  0% {
+    transform: translate(-130px, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes tubo {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes goteo {
+  from {
+    transform: scale(0.1) translateY(0);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    transform: scale(1) translateY(70px);
+    opacity: 0;
+  }
+}
+@keyframes rotar {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.liquido_papa {
+  transform: translate(0, 100%);
+}
+.liquido {
+  transform: translate(0, 100%);
+}
+.gota {
+  position: absolute;
+  z-index: 3;
+}
+
+.anim .liquido_papa {
+  animation-name: llenarProbeta;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+.anim .liquido {
+  animation-name: ondasProbeta;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 0.5s;
+}
+
+/*Generales*/
 .section {
   position: relative;
 }
+
 .lab_interno,
 .elementos_flotantes,
 .burbujas_sombra {
@@ -25,31 +102,63 @@ body {
   position: absolute;
   pointer-events: none;
 }
+
+.lab_textarea {
+  width: 360px;
+  max-width: 360px;
+  min-width: 360px;
+  position: absolute;
+  background-color: rgb(255 255 255 / 80%);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  min-height: 200px;
+  border: 0;
+  transition: all 0.5s;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  z-index: 3;
+}
+
+.lab_textarea:focus {
+  outline: none;
+}
+
+.lab_textarea[disabled] {
+  cursor: no-drop;
+  box-shadow: 0 0 0 4px #2f3640 !important;
+  background-color: rgb(255 255 255 / 50%);
+}
+
 .elementos_flotantes {
   max-width: 1200px;
-  
   left: 50%;
   transform: translateX(-50%);
 }
+
 .lab_interno {
   background: url("../img/textura-azul.png") repeat center;
   z-index: 2;
-  
 }
+
 .burbujas_sombra {
   top: -25px;
   left: -25px;
 }
+
 .burbujas_sombra rect {
-  fill: #F2E2B8;
-  /*animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;*/
+  fill: #f2e2b8;
+  animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
 }
+
 .burbujas rect {
-  /*animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;*/
+  animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
 }
+
 .elementos_flotantes img {
   position: absolute;
 }
+
 .lab_contenido {
   border-left: 1px solid white;
   border-right: 1px solid white;
@@ -58,17 +167,29 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   z-index: 3;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
+
 @media screen and (min-width: 1600px) {
-  .lab_contenido, .elementos_flotantes{
+  .lab_contenido,
+  .elementos_flotantes {
     max-width: 1425px;
   }
 }
-.escena {
+
+.lab_fondo {
   max-width: 100%;
+  z-index: 2;
 }
+
+#lab_fondo_1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 1150px;
+}
+
 /*Seccion 1*/
 #seccion_1 .lab_interno {
   clip-path: url(#clip_1);
@@ -76,32 +197,34 @@ body {
 
 #clip_1_1,
 #clip_1_1s {
-  width: 950px;
+  width: 970px;
   y: 4vh;
   height: 40vh;
   rx: 180;
   ry: 180;
   x: calc(50vw - 400px);
-  
 }
+
 #clip_1_2,
 #clip_1_2s {
-  width: 1100px;
+  width: 940px;
   y: 40vh;
   height: 40vh;
   rx: 180;
   ry: 180;
   x: calc(50vw - 600px);
 }
+
 #clip_1_3,
 #clip_1_3s {
-  width: 900px;
+  width: 850px;
   y: 55vh;
   height: 35vh;
   rx: 180;
   ry: 180;
   x: calc(50vw - 250px);
 }
+
 #clip_1_4,
 #clip_1_4s {
   width: 45vh;
@@ -110,41 +233,97 @@ body {
   rx: 180;
   ry: 180;
   x: calc(50vw - 300px);
-  
 }
+
 #seccion_1 img {
-  bottom: 180%
+  bottom: 180%;
 }
+
 #seccion_1 .el_1_1 {
-  right: calc(100% - 200px);
+  right: calc(100% - 15vw);
   top: -120px;
 }
+
 #seccion_1 .el_1_2 {
-  right: calc(100% - 220px);
-  top: 250px
+  right: calc(100% - 17vw);
+  top: 27vh;
 }
+
 #seccion_1 .el_1_3 {
-  right: calc(100% - 350px);
-  bottom: 0
+  right: calc(100% - 400px);
+  bottom: 15px;
 }
+
+#seccion_1 .el_1_4 {
+  left: calc(100% - 480px);
+  top: 8vh;
+}
+
+#seccion_1 .el_1_5 {
+  left: calc(85%);
+  bottom: -8vh;
+}
+
+#seccion_1 .el_1_6 {
+  left: calc(50%);
+  bottom: 0;
+}
+
+#seccion_1 .el_atomo {
+  left: -12vw;
+  top: 40vh;
+}
+
+#seccion_1 .el_circulo {
+  right: -10vw;
+  top: 53vh;
+  animation: rotar 4s linear infinite;
+}
+
+#seccion_1 .el_cono {
+  right: 0;
+  top: 55vh;
+}
+
+#seccion_1 .el_cubo {
+  right: -20%;
+  top: 65vh;
+}
+
 #seccion_1 .el_moleculas {
   right: 100%;
-  top: 20%
+  top: 20%;
+}
+
+#seccion_1 .el_moleculas_sm {
+  right: 75%;
+  top: 0%;
+}
+
+#seccion_1 .el_regla {
+  left: -15%;
+  top: 63%;
 }
 
 #seccion_1 .lab_contenido {
   justify-content: flex-end;
-  
 }
+
 #seccion_1 .lab_contenido > div {
-  margin-bottom: 50px;
+  margin-bottom: 7.5vh;
+  text-align: center;
+}
+
+.lab_contenido_grupo {
+  position: relative;
 }
 
 #escena {
-  posiiton: absolute;
+  position: absolute;
   height: 100%;
   width: 100%;
 }
+
 #escena div.esc1 {
   background: url("../img/textura-azul.png") repeat center;
   position: absolute;
@@ -152,15 +331,207 @@ body {
   width: 120%;
   opacity: 1;
 }
+
 #escena div.esc2 {
-  content: '';
+  content: "";
   position: absolute;
   height: 120%;
   width: 120%;
   background: url("../img/textura-formulas.png") repeat center;
-  opacity: .1
-
+  opacity: 0.1;
 }
+
 #escena div:nth-child(2) {
   display: none;
+}
+
+/*Seccion 1 Textareas*/
+#seccion_1 #loQueAmas {
+  right: 35%;
+  top: -5%;
+  box-shadow: 0 0 0 4px #24aded inset;
+}
+
+#seccion_1 #loQueAmas:hover,
+#seccion_1 #loQueAmas:focus {
+  box-shadow: 0 0 0 8px #24aded inset;
+}
+
+#seccion_1 #loQueEresBueno {
+  left: 20%;
+  bottom: 15%;
+  box-shadow: 0 0 0 4px #fa9229 inset;
+}
+
+#seccion_1 #loQueEresBueno:hover,
+#seccion_1 #loQueEresBueno:focus {
+  box-shadow: 0 0 0 8px #fa9229 inset;
+}
+
+#seccion_1 #pasion {
+  right: 10%;
+  bottom: 5%;
+  box-shadow: 0 0 0 4px #f04100 inset;
+}
+
+#seccion_1 #pasion:hover,
+#seccion_1 #pasion:focus {
+  box-shadow: 0 0 0 8px #f04100 inset;
+}
+
+/*Probeta En lo que eres bueno*/
+#probeta_loQueEresBueno {
+  position: absolute;
+  height: 207px;
+  width: 164px;
+  top: 220px;
+  left: 452px;
+  background: url("../img/fondo_probeta_1.png") no-repeat center;
+  background-size: contain;
+}
+
+#probeta_loQueEresBueno .gota {
+  left: 353px;
+  bottom: 135px;
+
+  opacity: 0;
+}
+#probeta_loQueEresBueno.anim .gota {
+  animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+}
+#probeta_loQueEresBueno .liquido {
+  fill: #ff7d04;
+  width: 164px;
+  height: 207px;
+}
+
+#tubo_1_1 {
+  position: absolute;
+  bottom: 160px;
+  left: 76px;
+  z-index: 2;
+}
+#tubo_1_1 path {
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #ff7d04;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+.anim #tubo_1_1 path {
+  animation: tubo 3s linear 3s forwards;
+}
+/*Probeta lo que amas*/
+#probeta_loQueAmas {
+  position: absolute;
+  height: 236px;
+  width: 186px;
+  top: 0;
+  right: 239px;
+  background: url("../img/fondo_probeta_2.png") no-repeat center bottom;
+  background-size: contain;
+}
+
+#probeta_loQueAmas .gota {
+  left: -140px;
+  bottom: -53px;
+  opacity: 0;
+}
+#probeta_loQueAmas.anim .gota {
+  animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+}
+#probeta_loQueAmas .liquido {
+  fill: #2397c3;
+  width: 164px;
+  height: 207px;
+}
+
+#tubo_1_2 {
+  position: absolute;
+  bottom: -35px;
+  left: -131px;
+  z-index: 2;
+}
+#tubo_1_2 path {
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #24aded;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+.anim #tubo_1_2 path {
+  animation: tubo 3s linear 3s forwards;
+}
+@keyframes llenarProbeta2 {
+  0% {
+    transform: translate(0, 100%);
+  }
+
+  100% {
+    transform: translate(0, 12%);
+  }
+}
+
+@keyframes ondasProbeta2 {
+  0% {
+    transform: translate(-100px, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+#probeta_loQueAmas.anim .liquido_papa {
+  animation-name: llenarProbeta2;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+#probeta_loQueAmas.anim .liquido {
+  animation-name: ondasProbeta2;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 0.7s;
+}
+/*Probeta lo que amas*/
+#probeta_pasion {
+  position: absolute;
+  height: 198px;
+  width: 163px;
+  bottom: 250px;
+  right: 500px;
+  background: url("../img/fondo_probeta_3.png") no-repeat center bottom;
+  background-size: contain;
+}
+
+#probeta_pasion .liquido {
+  fill: #f04100;
+  width: 164px;
+  height: 207px;
+}
+
+#tubo_1_3 {
+  position: absolute;
+  bottom: -180px;
+  right: 187px;
+  z-index: 2;
+}
+#tubo_1_3 path {
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #f04100;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+.anim #tubo_1_3 path {
+  animation: tubo 3s linear 9s forwards;
+}
+#probeta_pasion.anim .liquido_papa {
+  animation-delay: 6s;
+}
+
+#probeta_pasion.anim .liquido {
+  animation-delay: 5s;
 }
