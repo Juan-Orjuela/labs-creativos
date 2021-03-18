@@ -1,0 +1,95 @@
+.probeta_container {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+/*=========================
+SECCION 3   PROBETAS
+=========================*/
+#probeta_loQueElMundoNecesita2 {
+    position: absolute;
+    height: 239px;
+    width: 182px;
+    top: 140px;
+    left: 178px;
+    background-image: url("../img/fondo_probeta_3_1.png");
+    
+}
+
+#probeta_loQueElMundoNecesita2 .gota {
+    left: 387px;
+    top: 178px;
+    opacity: 0;
+}
+
+#probeta_loQueElMundoNecesita2.anim .gota {
+    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+}
+
+#probeta_loQueElMundoNecesita2 .liquido {
+    fill: #91cf50;
+}
+/*Tubo*/
+#tubo_3_1 {
+    position: absolute;
+    top: -55px;
+    left: 88px;
+    z-index: 3;
+}
+
+#tubo_3_1 path {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: #91cf50;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+#tubo_3_1 path:last-child {
+    stroke-dashoffset: -1000;
+}
+.anim #tubo_3_1 path {
+    animation: tubo 3s linear forwards;
+   animation-delay: 6s;
+}
+
+.anim #tubo_3_1 path:last-child {
+    animation-delay: 2s;
+    
+}
+/*Probeta 3.2*/
+#probeta_porLoQueTePagan {
+    position: absolute;
+    height: 179px;
+    width: 169px;
+    top: 102px;
+    left: 657px;
+    background-image: url("../img/fondo_probeta_3_4.png");
+    
+}
+
+#probeta_porLoQueTePagan .gota {
+    left: 12px;
+    top: 146px;
+    opacity: 0;
+}
+
+#probeta_porLoQueTePagan.anim .gota {
+    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+}
+
+#probeta_porLoQueTePagan .liquido {
+    fill: #f9df93;
+}
+#probeta_vocacion {
+    position: absolute;
+    height: 252px;
+    width: 229px;
+    top: initial;
+    bottom: 210px;
+    left: 494px;
+    background-image: url("../img/fondo_probeta_3_2.png");
+}
+#probeta_vocacion .liquido {
+    fill: #15696d;
+    
+}

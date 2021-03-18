@@ -37,7 +37,7 @@
 
 @keyframes ondasProbeta {
     0% {
-        transform: translate(-130px, 0);
+        transform: translate(-50%, 0);
     }
 
     100% {
@@ -103,7 +103,8 @@
     animation-name: ondasProbeta;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
+   /* animation-direction: alternate;*/
 }
 
 .destello {
@@ -1079,43 +1080,41 @@ SECCION 3
 }
 
 /*Seccion 3 Textareas*/
-#seccion_3 #loQueAmas2 {
-    left: 380px;
-    top: 130px;
-    box-shadow: 0 0 0 4px #24aded inset;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
-}
-
-#seccion_3 #loQueAmas2:hover, #seccion_3 #loQueAmas2:focus {
-    box-shadow: 0 0 0 8px #24aded inset;
-}
-
-#seccion_3 #loQueElMundoNecesita {
-    right: 90px;
-    top: 30px;
+#seccion_3 #loQueElMundoNecesita2 {
+    left: 160px;
+    top: 400px;
     box-shadow: 0 0 0 4px #91cf50 inset;
     width: 240px;
     min-width: 240px;
     max-width: 240px;
 }
 
-#seccion_3 #loQueElMundoNecesita:hover, #seccion_3 #loQueElMundoNecesita:focus {
+#seccion_3 #loQueElMundoNecesita2:hover, #seccion_3 #loQueElMundoNecesita2:focus {
     box-shadow: 0 0 0 8px #91cf50 inset;
 }
-
-#seccion_3 #mision {
-    left: 290px;
-    bottom: 150px;
-    box-shadow: 0 0 0 4px #9c328f inset;
+#seccion_3 #porLoQueTePagan {
+    left: 860px;
+    top: 160px;
+    box-shadow: 0 0 0 4px #f9df93 inset;
     width: 240px;
     min-width: 240px;
     max-width: 240px;
 }
 
-#seccion_3 #mision:hover, #seccion_3 #mision:focus {
-    box-shadow: 0 0 0 8px #9c328f inset;
+#seccion_3 #porLoQueTePagan:hover, #seccion_3 #porLoQueTePagan:focus {
+    box-shadow: 0 0 0 8px #f9df93 inset;
+}
+#seccion_3 #vocacion {
+    left: 790px;
+    bottom: 90px;
+    box-shadow: 0 0 0 4px #15696d inset;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+}
+
+#seccion_3 #vocacion:hover, #seccion_3 #vocacion:focus {
+    box-shadow: 0 0 0 8px #15696d inset;
 }
 
 /*=========================
@@ -1222,7 +1221,43 @@ SECCION 4
     margin-left: -12%;
     margin-top: -7vh;
 }
+/*Seccion 4 Textareas*/
+#seccion_4 #loQueEresBueno2 {
+    left: 460px;
+    top: 160px;
+    box-shadow: 0 0 0 4px #f69c00 inset;
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+}
 
+#seccion_4 #loQueEresBueno2:hover, #seccion_4 #loQueEresBueno2:focus {
+    box-shadow: 0 0 0 8px #f69c00 inset;
+}
+#seccion_4 #porLoQueTePagan2 {
+    left: 1200px;
+    top: 360px;
+    box-shadow: 0 0 0 4px #f9df93 inset;
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+}
+
+#seccion_4 #porLoQueTePagan2:hover, #seccion_4 #porLoQueTePagan2:focus {
+    box-shadow: 0 0 0 8px #f9df93 inset;
+}
+#seccion_4 #profesion {
+    left: 1070px;
+    bottom: 120px;
+    box-shadow: 0 0 0 4px #e84b60 inset;
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+}
+
+#seccion_4 #profesion:hover, #seccion_4 #profesion:focus {
+    box-shadow: 0 0 0 8px #e84b60 inset;
+}
 /*=========================
 SECCION 5
 =========================*/
@@ -1283,7 +1318,21 @@ SECCION 5
     width: 1513px;
     margin-left: -8%
 }
+/*seccion 5 textareas*/
+#seccion_5 #proposito {
+    left: 50%;
+    margin-left: -110px;
+    bottom: -40px;
+    box-shadow: 0 0 0 4px #3858b2 inset;
+    width: 360px;
+    min-width: 360px;
+    max-width: 360px;
+    min-height: 200px;
+}
 
+#seccion_4 #profesion:hover, #seccion_4 #profesion:focus {
+    box-shadow: 0 0 0 8px #3858b2 inset;
+}
 /*Contenedores*/
 .lab_contenido, .elementos_flotantes {
     max-width: 1360px;
