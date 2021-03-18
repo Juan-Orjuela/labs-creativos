@@ -1,7 +1,14 @@
 "use strict";
 //Parallax
-const escena = document.getElementById("escena");
-const parallaxInstance = new Parallax(escena);
+/*const escena = document.getElementById("escena");
+const parallaxInstance = new Parallax(escena);*/
+
+const scenes = [];
+const scenesSelector = document.querySelectorAll(".lab_interno_texturas");
+
+for (let i = 0; i < scenesSelector.length; i++) {
+  scenes[i] = new Parallax(scenesSelector[i]);
+}
 //Respuestas
 const respuestas = {};
 const textAreas = document.querySelectorAll(".lab_textarea");
