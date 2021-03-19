@@ -40,3 +40,13 @@ textAreas.forEach(function (el, index) {
     }
   });
 });
+//Popovers
+$(function () {
+  $('[data-toggle="popover"]').popover({
+    html: true,
+  });
+});
+/*
+$(".popover-dismiss").popover({
+  trigger: "click",
+});*/

@@ -6,7 +6,7 @@
 /*Animaciones*/
 @keyframes destello {
     from {
-        opacity: 0;
+        opacity: .5;
     }
 
     to {
@@ -108,8 +108,8 @@
 }
 
 .destello {
-    opacity: 0;
-    animation: destello 3s ease infinite alternate;
+    opacity: 1;
+    /*animation: destello 3s ease infinite alternate;*/
 }
 
 /*Generales*/
@@ -180,8 +180,8 @@
 }
 
 .lab_contenido {
-    border-left: 1px dashed #54a290;
-    border-right: 1px dashed #54a290;
+    /*border-left: 1px dashed #54a290;
+    border-right: 1px dashed #54a290;*/
     height: 100%;
     position: relative;
     margin: 0 auto;
@@ -266,7 +266,7 @@
 
 #seccion_1 .el_1_5 {
     left: calc(85%);
-    bottom: -8vh;
+    bottom: -22vh;
 }
 
 #seccion_1 .el_1_6 {
