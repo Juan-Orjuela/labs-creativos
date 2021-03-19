@@ -6,6 +6,7 @@
 /*=========================
 SECCION 3   PROBETAS
 =========================*/
+/*Probeta 3.1*/
 #probeta_loQueElMundoNecesita2 {
     position: absolute;
     height: 239px;
@@ -80,6 +81,7 @@ SECCION 3   PROBETAS
 #probeta_porLoQueTePagan .liquido {
     fill: #f9df93;
 }
+/*Probeta 3f*/
 #probeta_vocacion {
     position: absolute;
     height: 252px;
@@ -92,4 +94,253 @@ SECCION 3   PROBETAS
 #probeta_vocacion .liquido {
     fill: #15696d;
     
+}
+#tubo_vocacion {
+    position: absolute;
+    bottom: -200px;
+    left: 70px;
+    z-index: 3;
+}
+
+#tubo_vocacion path {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: #15696d;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+#tubo_vocacion path:last-child {
+    stroke-dashoffset: 1000;
+}
+.anim #tubo_vocacion path {
+    animation: tubo 3s linear forwards;
+    animation-delay: 1s;
+}
+
+
+/*Ajustes animacion*/
+@keyframes ondasProbeta_vocacion {
+    0% {
+        transform: translate(-408px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+#probeta_vocacion.anim .liquido {
+    animation-name: ondasProbeta_vocacion;
+}
+@keyframes ondasProbeta_vocacion1 {
+    0% {
+        transform: translate(-128px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+#probeta_loQueElMundoNecesita2.anim .liquido {
+    animation-name: ondasProbeta_vocacion1;
+}
+/*=========================
+SECCION 4   PROBETAS
+=========================*/
+/*Probeta 4.1*/
+#probeta_loQueEresBueno2 {
+    position: absolute;
+    width: 207px;
+    height: 262px;
+    top: 387px;
+    left: 488px;
+    background-image: url("../img/fondo_probeta_4_1.png");
+    
+}
+
+#probeta_loQueEresBueno2 .gota {
+    left: 389px;
+    top: 158px;
+    opacity: 0;
+}
+
+#probeta_loQueEresBueno2.anim .gota {
+    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+}
+
+#probeta_loQueEresBueno2 .liquido {
+    fill: #f69c00;
+}
+@keyframes ondasProbeta_profesion1 {
+    0% {
+        transform: translate(-96px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+#probeta_loQueEresBueno2.anim .liquido {
+    animation-name: ondasProbeta_profesion1;
+}
+/*Tubo*/
+#tubo_4_1 {
+    position: absolute;
+    top: 60px;
+    left: 141px;
+    z-index: 3;
+}
+
+#tubo_4_1 path {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: #f69c00;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+#tubo_4_1 path:last-child {
+    stroke-dashoffset: 1000;
+}
+.anim #tubo_4_1 path {
+   animation: tubo 3s linear forwards;
+   animation-delay: 3s;
+}
+/*Probeta 4.2*/
+#probeta_porLoQueTePagan2 {
+    position: absolute;
+    width: 155px;
+    height: 189px;
+    top: 94px;
+    left: 1106px;
+    background-image: url("../img/fondo_probeta_4_2.png");
+    
+}
+
+
+#probeta_porLoQueTePagan2 .gota {
+    left: -139px;
+    top: 457px;
+    opacity: 0;
+}
+
+#probeta_porLoQueTePagan2.anim .gota {
+    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+}
+#probeta_porLoQueTePagan2 .gota.g2 {
+    left: 16px;
+    top: 159px;
+    opacity: 0;
+}
+
+#probeta_porLoQueTePagan2.anim .gota.g2 {
+    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 3s infinite;
+}
+#probeta_porLoQueTePagan2 .liquido {
+    fill: #f9df93;
+}
+/*Probeta 4f*/
+#probeta_profesion {
+    position: absolute;
+    height: 191px;
+    width: 178px;
+    top: 570px;
+    left: 842px;
+    background-image: url("../img/fondo_probeta_4profesion.png");
+}
+#probeta_profesion .liquido {
+    fill: #e84b60;
+    
+}
+#tubo_profesion {
+    position: absolute;
+    bottom: -74px;
+    left: 43px;
+    z-index: 3;
+}
+
+#tubo_profesion path {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: #e84b60;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+#tubo_profesion path:last-child {
+    stroke-dashoffset: 1000;
+}
+.anim #tubo_profesion path {
+    animation: tubo 3s linear forwards;
+    animation-delay: 1s;
+}
+
+#probeta_profesion > img {
+    position: absolute;
+}
+#brillo_bombillo {
+    top: -406px;
+    left: 17px;
+    opacity: 0;
+    transition: opacity 100ms;
+    transition-delay: 5s;
+}
+.anim #brillo_bombillo {
+    opacity: 1
+}
+#aguja {
+    top: -80px;
+    z-index: 6;
+    left: 88px;
+    transition: transform 1s;
+    transform: rotate(-82deg);
+    transform-origin: center bottom;
+    transition-delay: 5.5s;
+}
+.anim #aguja {
+    transform: rotate(22deg);
+    animation: aguja .5s linear infinite alternate;
+    animation-delay: 6.5s;
+} 
+@keyframes aguja {
+    from {
+        transform: rotate(22deg);
+    }
+    to {
+        transform: rotate(36deg);
+    }
+}
+
+#tubo_profesionb1 {
+    position: absolute;
+    top: -260px;
+    left: -59px;
+    z-index: 6;
+}
+
+#tubo_profesionb1 path {
+    fill: transparent;
+    stroke-width: 4px;
+    stroke: #f69c00;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+.anim #tubo_profesionb1 path {
+    animation: tubo 3s linear forwards;
+    animation-delay: 1s;
+}
+#tubo_profesionb2 {
+    position: absolute;
+    top: -255px;
+    left: -34px;
+    z-index: 6;
+}
+
+#tubo_profesionb2 path {
+    fill: transparent;
+    stroke-width: 4px;
+    stroke: #f9df93;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+.anim #tubo_profesionb2 path {
+    animation: tubo 3s linear forwards;
+    animation-delay: 1.5s;
 }

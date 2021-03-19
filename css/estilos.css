@@ -37,7 +37,7 @@
 
 @keyframes ondasProbeta {
     0% {
-        transform: translate(-50%, 0);
+        transform: translate(-80%, 0);
     }
 
     100% {
@@ -1330,7 +1330,7 @@ SECCION 5
     min-height: 200px;
 }
 
-#seccion_4 #profesion:hover, #seccion_4 #profesion:focus {
+#seccion_5 #proposito:hover, #seccion_5 #proposito:focus {
     box-shadow: 0 0 0 8px #3858b2 inset;
 }
 /*Contenedores*/
