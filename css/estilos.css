@@ -904,6 +904,19 @@ SECCION 2
     fill: #91cf50;
 }
 
+#probeta_loQueElMundoNecesita.anim .liquido {
+    animation: loQueElMundoNecesita 1s linear infinite;
+}
+
+@keyframes loQueElMundoNecesita {
+    from {
+        transform: translate(-128px, 0)
+    }
+    to {
+        transform: translate(0, 0)
+    }
+}
+
 #probeta_mision {
     position: absolute;
     height: 193px;
@@ -930,7 +943,7 @@ SECCION 2
 }
 
 .anim #tubo_2_1 path {
-    animation: tubo 3s linear 9s forwards;
+    animation: tubo 3s linear 3s forwards;
 }
 
 #tubo_2_2 {
@@ -947,13 +960,15 @@ SECCION 2
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
 }
-
+#tubo_2_2 path {
+    stroke-dashoffset: -1000;
+}
 .anim #tubo_2_2 path {
-    animation: tubo 3s linear 9s forwards;
+    animation: tubo 3s linear .5s forwards;
 }
 
 .anim #tubo_2_2 path:last-child {
-    animation-delay: 12s;
+    animation-delay: 0s;
 }
 
 #tubo_2_3 {
