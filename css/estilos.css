@@ -1372,3 +1372,109 @@ SECCION 5
         transform: translate(-50%, -50%) scale(.7)
     }
 }
+/*LOGIN*/
+.contenedor-login {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #1b7899;
+    
+}
+@keyframes entrar {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+.contenedor-login-max {
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    
+    
+   height: 62.5vw;
+    opacity: 0;
+    animation: entrar 3s forwards;
+}
+.contenedor-login .fondo img {
+    width: 100%;
+    
+}
+@keyframes card {
+    from {
+        opacity: 0;
+        top: 75vh;
+    }
+    to {
+        opacity: 1;
+        top: 58vh;
+    }
+}
+.contenedor-login .card {
+    position: fixed;
+    
+    left: 50%;
+    opacity: 0;
+        top: 75vh;
+    transform: translate(-50%, 0);
+    z-index: 10;
+    animation: card 1s ease-out 3s forwards;
+}
+.contenedor-login .card img {
+    max-height: 37vh;
+}
+.contenedor-login .timon {
+    position: absolute;
+    width: 8%;
+    top: 27.6%;
+    left: 49.5%;
+}
+.contenedor-login .timon img,
+.contenedor-login .mano img {
+    width: 100%;
+}
+.contenedor-login .timon img:first-child {
+    position: relative;
+    z-index:2
+}
+.contenedor-login .timon .sombra {
+    position: absolute;
+    top: 5%;
+    left: -5%;
+    
+}
+@keyframes mano {
+    from {
+        opacity: .2
+    }
+    to {
+        opacity: 1
+    }
+}
+.contenedor-login .mano {
+    position: absolute;
+    width: 2%;
+    top: 30.6%;
+    left: 31.4%;
+}
+.contenedor-login .mano a {
+    animation: mano 2s infinite;
+}
+.contenedor-login .mano a:hover {
+    animation-play-state: paused;
+    filter:hue-rotate(-180deg);
+    opacity: 1 !important
+} 
+@keyframes timon {
+    from {
+        transform: rotate(-700deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+.contenedor-login .timon img {
+    animation: timon 2s ease 1s;
+}
