@@ -74,6 +74,24 @@ SECCION 3   FLOTANTES
   left: 60px;
   bottom: -170px;
 }
+.el_3_3 .r {
+  top: 8px;
+  left: 9px;
+}
+.el_3_3 .gce_s3_3{
+  width: 126px;
+  height: 43px;
+  top: 29px;
+  left: 79px;
+  border-radius: 5px;
+}
+.el_3_3 .flotante {
+  top: 49px;
+  left: -140px;
+  position: absolute;
+  width: 150px;
+  z-index:12
+}
 /*=========================
 SECCION 4   FLOTANTES
 =========================*/
@@ -92,15 +110,77 @@ SECCION 5   FLOTANTES
   left: calc((100vw - 1360px) / 2 * -1);
   bottom: 25px;
 }
+
+.el_5_1 .r {
+  top: 0px;
+  left: 0px;
+}
+.el_5_1 .gce_s5_1_1{
+  width: 94px;
+  height: 43px;
+  top: 55px;
+  left: 60px;
+  border-radius: 9px;
+}
+.gif_s5_1_2 {
+  left: 146px;
+  top: 240px;
+  width: 66px;
+}
+.gif_s5_1_3 {
+  left: 250px;
+  top: 408px;
+  width: 66px;
+}
+.el_5_1 .gce_s5_1_4{
+  width: 113px;
+  height: 43px;
+  top: 483px;
+  left: 149px;
+  border-radius: 9px;
+}
 .el_5_2 {
   left: 100%;
   top: -10%;
+}
+.el_5_2 .r {
+  top: 8px;
+  left: 8px;
 }
 .el_5_3 {
   right: calc((100vw - 1360px) / 2 * -1);
   bottom: 20px;
   margin-right: -20px;
 }
+.el_5_3 .r {
+  top: 0px;
+  left: 8px;
+}
+
+.el_5_3 .gce_s5_3_1{
+  width: 113px;
+  height: 43px;
+  top: 260px;
+  left: 20px;
+  border-radius: 9px;
+}
+
+.gif_s5_3_2 {
+  left: 109px;
+  top: 349px;
+  width: 54px;
+}
+.gif_s5_3_3 {
+  left: 109px;
+  top: 429px;
+  width: 59px;
+}
+.gif_s5_3_4 {
+  left: 38px;
+  top: 643px;
+  width: 47px;
+}
+
 .ef_s5_izq {
   left: calc((100vw - 1360px) / 2 * -1);
   bottom: 50px;
