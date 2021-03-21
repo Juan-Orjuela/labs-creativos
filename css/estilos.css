@@ -1,17 +1,19 @@
-@charset 'UTF-8'; body {
-    margin: 0;
-    background: #f7c800 url("../img/textura-amarilla.png") repeat center;
+@charset 'UTF-8';
+
+body {
+  margin: 0;
+  background: #f7c800 url("../img/textura-amarilla.png") repeat center;
 }
 
 /*Animaciones*/
 @keyframes destello {
-    from {
-        opacity: .5;
-    }
+  from {
+    opacity: 0.5;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 /*@keyframes burbuja {
@@ -26,1455 +28,1574 @@
   }
 }*/
 @keyframes llenarProbeta {
-    0% {
-        transform: translate(0, 100%);
-    }
+  0% {
+    transform: translate(0, 100%);
+  }
 
-    100% {
-        transform: translate(0, 30%);
-    }
+  100% {
+    transform: translate(0, 30%);
+  }
 }
 
 @keyframes ondasProbeta {
-    0% {
-        transform: translate(-80%, 0);
-    }
+  0% {
+    transform: translate(-80%, 0);
+  }
 
-    100% {
-        transform: translate(0, 0);
-    }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes tubo {
-    to {
-        stroke-dashoffset: 0;
-    }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes goteo {
-    from {
-        transform: scale(0.1) translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: scale(0.1) translateY(0);
+    opacity: 1;
+  }
 
-    90% {
-        opacity: 1;
-    }
+  90% {
+    opacity: 1;
+  }
 
-    to {
-        stroke-dashoffset: 0;
-        transform: scale(1) translateY(70px);
-        opacity: 0;
-    }
+  to {
+    stroke-dashoffset: 0;
+    transform: scale(1) translateY(70px);
+    opacity: 0;
+  }
 }
 
 @keyframes rotar {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .liquido_papa {
-    transform: translate(0, 100%);
+  transform: translate(0, 100%);
 }
 
 .liquido {
-    transform: translate(0, 100%);
+  transform: translate(0, 100%);
 }
 
 .gota {
-    position: absolute;
-    z-index: 3;
+  position: absolute;
+  z-index: 3;
 }
 
 .anim .liquido_papa {
-    animation-name: llenarProbeta;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
+  animation-name: llenarProbeta;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
 }
 
 .anim .liquido {
-    animation-name: ondasProbeta;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 1s;
-   /* animation-direction: alternate;*/
+  animation-name: ondasProbeta;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  /* animation-direction: alternate;*/
 }
 
 .destello {
-    opacity: 1;
-    /*animation: destello 3s ease infinite alternate;*/
+  opacity: 1;
+  /*animation: destello 3s ease infinite alternate;*/
 }
 
 /*Generales*/
 .section {
-    position: relative;
+  position: relative;
 }
 
-.lab_interno, .elementos_flotantes, .burbujas_sombra {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    pointer-events: none;
+.lab_interno,
+.elementos_flotantes,
+.burbujas_sombra {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
 }
 
 .lab_textarea {
-    width: 300px;
-    max-width: 300px;
-    min-width: 300px;
-    position: absolute;
-    background-color: rgb(255 255 255 / 80%);
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 20px;
-    min-height: 150px;
-    border: 0;
-    transition: all 0.5s;
-    font-size: 1.4rem;
-    line-height: 1.3;
-    z-index: 3;
+  width: 300px;
+  max-width: 300px;
+  min-width: 300px;
+  position: absolute;
+  background-color: rgb(255 255 255 / 80%);
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  min-height: 150px;
+  border: 0;
+  transition: all 0.5s;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  z-index: 3;
 }
 
 .lab_textarea:focus {
-    outline: none;
+  outline: none;
 }
 
 .lab_textarea[disabled] {
-    cursor: no-drop;
-    box-shadow: 0 0 0 4px #2f3640 !important;
-    background-color: rgb(255 255 255 / 50%);
+  cursor: no-drop;
+  box-shadow: 0 0 0 4px #2f3640 !important;
+  background-color: rgb(255 255 255 / 50%);
 }
 
 .elementos_flotantes {
-    left: 50%;
-    transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .lab_interno {
-    background: url("../img/textura-azul.png") repeat center;
-    z-index: 2;
+  background: url("../img/textura-azul.png") repeat center;
+  z-index: 2;
 }
 
 .burbujas_sombra {
-    top: -25px;
-    left: -25px;
+  top: -25px;
+  left: -25px;
 }
 
 .burbujas_sombra rect {
-    fill: #f2e2b8;
-    animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  fill: #f2e2b8;
+  animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
 }
 
 .burbujas rect {
-    animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  animation: burbuja 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
 }
 
-.elementos_flotantes > div, .elementos_flotantes > img {
-    position: absolute;
+.elementos_flotantes > div,
+.elementos_flotantes > img {
+  position: absolute;
 }
 
 .lab_contenido {
-    /*border-left: 1px dashed #54a290;
+  /*border-left: 1px dashed #54a290;
     border-right: 1px dashed #54a290;*/
-    height: 100%;
-    position: relative;
-    margin: 0 auto;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
 }
 
 .lab_fondo {
-    max-width: 100%;
-    z-index: 2;
-    position: relative;
+  max-width: 100%;
+  z-index: 2;
+  position: relative;
 }
 
 #lab_fondo_1 {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 1150px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 1150px;
 }
 
 /*Seccion 1*/
 #seccion_1 .lab_interno {
-    clip-path: url(#clip_1);
+  clip-path: url(#clip_1);
 }
 
-#clip_1_1, #clip_1_1s {
-    width: 970px;
-    y: 4vh;
-    height: 40vh;
-    rx: 180;
-    ry: 180;
-    x: calc(50vw - 400px);
+#clip_1_1,
+#clip_1_1s {
+  width: 970px;
+  y: 4vh;
+  height: 40vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 400px);
 }
 
-#clip_1_2, #clip_1_2s {
-    width: 940px;
-    y: 40vh;
-    height: 40vh;
-    rx: 180;
-    ry: 180;
-    x: calc(50vw - 600px);
+#clip_1_2,
+#clip_1_2s {
+  width: 940px;
+  y: 40vh;
+  height: 40vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 600px);
 }
 
-#clip_1_3, #clip_1_3s {
-    width: 850px;
-    y: 55vh;
-    height: 35vh;
-    rx: 180;
-    ry: 180;
-    x: calc(50vw - 250px);
+#clip_1_3,
+#clip_1_3s {
+  width: 850px;
+  y: 55vh;
+  height: 35vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 250px);
 }
 
-#clip_1_4, #clip_1_4s {
-    width: 45vh;
-    y: 70vh;
-    height: 45vh;
-    rx: 180;
-    ry: 180;
-    x: calc(50vw - 300px);
+#clip_1_4,
+#clip_1_4s {
+  width: 45vh;
+  y: 70vh;
+  height: 45vh;
+  rx: 180;
+  ry: 180;
+  x: calc(50vw - 300px);
 }
 
 #seccion_1 .el_1_1 {
-    right: calc(100% - 15vw);
-    top: -110px;
+  right: calc(100% - 15vw);
+  top: -110px;
 }
 
 #seccion_1 .el_1_2 {
-    right: calc(100% - 17vw);
-    top: 27vh;
+  right: calc(100% - 17vw);
+  top: 27vh;
 }
 
 #seccion_1 .el_1_3 {
-    right: calc(100% - 400px);
-    bottom: 15px;
+  right: calc(100% - 400px);
+  bottom: 15px;
 }
 
 #seccion_1 .el_1_4 {
-    left: calc(100% - 480px);
-    top: 8vh;
+  left: calc(100% - 480px);
+  top: 8vh;
 }
 
 #seccion_1 .el_1_5 {
-    left: calc(85%);
-    bottom: -22vh;
+  left: calc(85%);
+  bottom: -22vh;
 }
 
 #seccion_1 .el_1_6 {
-    left: calc(50%);
-    bottom: 0;
+  left: calc(50%);
+  bottom: 0;
 }
 
 #seccion_1 .el_atomo {
-    left: -12vw;
-    top: 40vh;
-    animation-delay: 500ms;
+  left: -12vw;
+  top: 40vh;
+  animation-delay: 500ms;
 }
 
 #seccion_1 .el_circulo {
-    right: -10vw;
-    top: 53vh;
-    animation: rotar 4s linear infinite;
+  right: -10vw;
+  top: 53vh;
+  animation: rotar 4s linear infinite;
 }
 
 #seccion_1 .el_cono {
-    right: 0;
-    top: 55vh;
-    animation-delay: 500ms;
+  right: 0;
+  top: 55vh;
+  animation-delay: 500ms;
 }
 
 #seccion_1 .el_cubo {
-    right: -20%;
-    top: 65vh;
-    animation-delay: 1000ms;
+  right: -20%;
+  top: 65vh;
+  animation-delay: 1000ms;
 }
 
 #seccion_1 .el_moleculas {
-    right: 100%;
-    top: 20%;
-    animation-delay: 1500ms;
+  right: 100%;
+  top: 20%;
+  animation-delay: 1500ms;
 }
 
 #seccion_1 .el_moleculas_sm {
-    right: 75%;
-    top: 0%;
+  right: 75%;
+  top: 0%;
 }
 
 #seccion_1 .el_regla {
-    left: -15%;
-    top: 63%;
-    animation-delay: 1000ms;
+  left: -15%;
+  top: 63%;
+  animation-delay: 1000ms;
 }
 
 #seccion_1 .lab_contenido {
-    /* justify-content: flex-end; */
+  /* justify-content: flex-end; */
 }
 
 #seccion_1 .lab_contenido_grupo {
-    width: 1150px;
-    margin: 0 auto;
+  width: 1150px;
+  margin: 0 auto;
 }
 
 .lab_contenido_grupo {
-    position: absolute;
-    text-align: center;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%)
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .lab_interno_texturas {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .lab_interno_texturas div.esc1 {
-    background: url("../img/textura-azul.png") repeat center;
-    position: absolute;
-    height: 120%;
-    width: 120%;
-    opacity: 1;
+  background: url("../img/textura-azul.png") repeat center;
+  position: absolute;
+  height: 120%;
+  width: 120%;
+  opacity: 1;
 }
 
 .lab_interno_texturas div.esc2 {
-    content: "";
-    position: absolute;
-    height: 120%;
-    width: 120%;
-    background: url("../img/textura-formulas.png") repeat center;
-    opacity: 0.1;
+  content: "";
+  position: absolute;
+  height: 120%;
+  width: 120%;
+  background: url("../img/textura-formulas.png") repeat center;
+  opacity: 0.1;
 }
 
 .lab_interno_texturas div:nth-child(2) {
-    display: none;
+  display: none;
 }
 
 /*Seccion 1 Textareas*/
 #seccion_1 #loQueAmas {
-    right: 35%;
-    top: 3%;
-    box-shadow: 0 0 0 4px #24aded inset;
+  right: 35%;
+  top: 3%;
+  box-shadow: 0 0 0 4px #24aded inset;
 }
 
-#seccion_1 #loQueAmas:hover, #seccion_1 #loQueAmas:focus {
-    box-shadow: 0 0 0 8px #24aded inset;
+#seccion_1 #loQueAmas:hover,
+#seccion_1 #loQueAmas:focus {
+  box-shadow: 0 0 0 8px #24aded inset;
 }
 
 #seccion_1 #loQueEresBueno {
-    left: 20%;
-    bottom: 150px;
-    box-shadow: 0 0 0 4px #fa9229 inset;
+  left: 20%;
+  bottom: 150px;
+  box-shadow: 0 0 0 4px #fa9229 inset;
 }
 
-#seccion_1 #loQueEresBueno:hover, #seccion_1 #loQueEresBueno:focus {
-    box-shadow: 0 0 0 8px #fa9229 inset;
+#seccion_1 #loQueEresBueno:hover,
+#seccion_1 #loQueEresBueno:focus {
+  box-shadow: 0 0 0 8px #fa9229 inset;
 }
 
 #seccion_1 #pasion {
-    right: 30px;
-    bottom: 150px;
-    box-shadow: 0 0 0 4px #f04100 inset;
+  right: 30px;
+  bottom: 150px;
+  box-shadow: 0 0 0 4px #f04100 inset;
 }
 
-#seccion_1 #pasion:hover, #seccion_1 #pasion:focus {
-    box-shadow: 0 0 0 8px #f04100 inset;
+#seccion_1 #pasion:hover,
+#seccion_1 #pasion:focus {
+  box-shadow: 0 0 0 8px #f04100 inset;
 }
 
 .probeta_container {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /*Probeta En lo que eres bueno*/
 #probeta_loQueEresBueno {
-    position: absolute;
-    height: 207px;
-    width: 164px;
-    top: 220px;
-    left: 315px;
-    background: url("../img/fondo_probeta_1.png") no-repeat center;
-    background-size: contain;
+  position: absolute;
+  height: 207px;
+  width: 164px;
+  top: 220px;
+  left: 315px;
+  background: url("../img/fondo_probeta_1.png") no-repeat center;
+  background-size: contain;
 }
 
 #probeta_loQueEresBueno .gota {
-    left: 353px;
-    bottom: 135px;
-    opacity: 0;
+  left: 353px;
+  bottom: 135px;
+  opacity: 0;
 }
 
 #probeta_loQueEresBueno.anim .gota {
-    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+  animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
 
 #probeta_loQueEresBueno .liquido {
-    fill: #ff7d04;
-    width: 164px;
-    height: 207px;
+  fill: #ff7d04;
+  width: 164px;
+  height: 207px;
 }
 
 #tubo_1_1 {
-    position: absolute;
-    bottom: 160px;
-    left: 76px;
-    z-index: 2;
+  position: absolute;
+  bottom: 160px;
+  left: 76px;
+  z-index: 2;
 }
 
 #tubo_1_1 path {
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: #ff7d04;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #ff7d04;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
 }
 
 .anim #tubo_1_1 path {
-    animation: tubo 3s linear 3s forwards;
+  animation: tubo 3s linear 3s forwards;
 }
 
 /*Probeta lo que amas*/
 #probeta_loQueAmas {
-    position: absolute;
-    height: 236px;
-    width: 186px;
-    top: 0;
-    right: 101px;
-    background: url("../img/fondo_probeta_2.png") no-repeat center bottom;
-    background-size: contain;
+  position: absolute;
+  height: 236px;
+  width: 186px;
+  top: 0;
+  right: 101px;
+  background: url("../img/fondo_probeta_2.png") no-repeat center bottom;
+  background-size: contain;
 }
 
 #probeta_loQueAmas .gota {
-    left: -140px;
-    bottom: -53px;
-    opacity: 0;
+  left: -140px;
+  bottom: -53px;
+  opacity: 0;
 }
 
 #probeta_loQueAmas.anim .gota {
-    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+  animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
 
 #probeta_loQueAmas .liquido {
-    fill: #2397c3;
-    width: 164px;
-    height: 207px;
+  fill: #2397c3;
+  width: 164px;
+  height: 207px;
 }
 
 #tubo_1_2 {
-    position: absolute;
-    bottom: -35px;
-    left: -131px;
-    z-index: 2;
+  position: absolute;
+  bottom: -35px;
+  left: -131px;
+  z-index: 2;
 }
 
 #tubo_1_2 path {
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: #24aded;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #24aded;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
 }
 
 .anim #tubo_1_2 path {
-    animation: tubo 3s linear 3s forwards;
+  animation: tubo 3s linear 3s forwards;
 }
 
 @keyframes llenarProbeta2 {
-    0% {
-        transform: translate(0, 100%);
-    }
+  0% {
+    transform: translate(0, 100%);
+  }
 
-    100% {
-        transform: translate(0, 12%);
-    }
+  100% {
+    transform: translate(0, 12%);
+  }
 }
 
 @keyframes ondasProbeta2 {
-    0% {
-        transform: translate(-100px, 0);
-    }
+  0% {
+    transform: translate(-100px, 0);
+  }
 
-    100% {
-        transform: translate(0, 0);
-    }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 #probeta_loQueAmas.anim .liquido_papa {
-    animation-name: llenarProbeta2;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+  animation-name: llenarProbeta2;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 #probeta_loQueAmas.anim .liquido {
-    animation-name: ondasProbeta2;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: 0.7s;
+  animation-name: ondasProbeta2;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 0.7s;
 }
 
 /*Probeta lo que amas*/
 #probeta_pasion {
-    position: absolute;
-    height: 198px;
-    width: 163px;
-    bottom: 250px;
-    right: 363px;
-    background: url("../img/fondo_probeta_3.png") no-repeat center bottom;
-    background-size: contain;
+  position: absolute;
+  height: 198px;
+  width: 163px;
+  bottom: 250px;
+  right: 363px;
+  background: url("../img/fondo_probeta_3.png") no-repeat center bottom;
+  background-size: contain;
 }
 
 #probeta_pasion .liquido {
-    fill: #f04100;
-    width: 164px;
-    height: 207px;
+  fill: #f04100;
+  width: 164px;
+  height: 207px;
 }
 
 #tubo_1_3 {
-    position: absolute;
-    bottom: -180px;
-    right: 187px;
-    z-index: 2;
+  position: absolute;
+  bottom: -180px;
+  right: 187px;
+  z-index: 2;
 }
 
 #tubo_1_3 path {
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: #f04100;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #f04100;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
 }
 
 .anim #tubo_1_3 path {
-    animation: tubo 3s linear 9s forwards;
+  animation: tubo 3s linear 9s forwards;
 }
 
 #probeta_pasion.anim .liquido_papa {
-    animation-delay: 6s;
+  animation-delay: 6s;
 }
 
 #probeta_pasion.anim .liquido {
-    animation-delay: 5s;
+  animation-delay: 5s;
 }
 
 /*Pruebas animacion*/
-.el_1_1 > div, .r {
-    position: absolute;
+.el_1_1 > div,
+.r {
+  position: absolute;
 }
 
-.r path, .r line, .r circle, .r polyline {
-    stroke: #f3dfa2;
-    fill: transparent;
-    stroke-width: 2px;
-    stroke-dasharray: 8px;
-    animation: dashanim 4s linear infinite;
+.r path,
+.r line,
+.r circle,
+.r polyline {
+  stroke: #f3dfa2;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke-dasharray: 8px;
+  animation: dashanim 4s linear infinite;
 }
 
 img[class*="gif"] {
-    position: absolute;
+  position: absolute;
 }
 
 @keyframes dashanim {
-    to {
-        stroke-dashoffset: -200;
-    }
+  to {
+    stroke-dashoffset: -200;
+  }
 }
 
 .el_1_1 .r1 {
-    top: 8px;
-    left: 0;
+  top: 8px;
+  left: 0;
 }
 
 .el_1_1 .r2 {
-    bottom: 0;
-    right: 7px;
+  bottom: 0;
+  right: 7px;
 }
 
 .el_1_1 .c1 {
-    border-radius: 100%;
-    width: 90px;
-    height: 90px;
-    top: 146px;
-    left: 320px;
-    border: 2px dashed #f3dfa2;
-    box-sizing: border-box;
-    animation: rotar 10s linear infinite;
+  border-radius: 100%;
+  width: 90px;
+  height: 90px;
+  top: 146px;
+  left: 320px;
+  border: 2px dashed #f3dfa2;
+  box-sizing: border-box;
+  animation: rotar 10s linear infinite;
 }
 
 .el_1_1 .gif1 {
-    position: absolute;
-    width: 75px;
-    height: 70px;
-    top: 159px;
-    left: 327px;
+  position: absolute;
+  width: 75px;
+  height: 70px;
+  top: 159px;
+  left: 327px;
 }
 
 .el_1_2 .r1 {
-    top: 8px;
-    left: 0;
+  top: 8px;
+  left: 0;
 }
 
 .gif2 {
-    position: absolute;
-    top: 82px;
-    left: 218px;
+  position: absolute;
+  top: 82px;
+  left: 218px;
 }
 
 .el_1_3 .r1 {
-    top: 8px;
-    left: 0;
+  top: 8px;
+  left: 0;
 }
 
 .el_1_3 .r2 {
-    bottom: 8px;
-    left: 357px;
+  bottom: 8px;
+  left: 357px;
 }
 
 .el_1_3 .r3 {
-    bottom: 48px;
-    right: -18px;
+  bottom: 48px;
+  right: -18px;
 }
 
 .gif3 {
-    position: absolute;
-    top: 110px;
-    left: 369px;
-    width: 147px;
+  position: absolute;
+  top: 110px;
+  left: 369px;
+  width: 147px;
 }
 
 .el_1_4 .r1 {
-    top: 8px;
-    left: 0;
+  top: 8px;
+  left: 0;
 }
 
 .gif4 {
-    position: absolute;
-    top: 10px;
-    left: 400px;
-    width: 225px;
+  position: absolute;
+  top: 10px;
+  left: 400px;
+  width: 225px;
 }
 
 .gif5 {
-    position: absolute;
-    top: 218px;
-    left: 345px;
-    width: 70px;
+  position: absolute;
+  top: 218px;
+  left: 345px;
+  width: 70px;
 }
 
 .el_1_5 .r1 {
-    left: 8px;
-    top: 2px;
+  left: 8px;
+  top: 2px;
 }
 
 .el_1_6 .r1 {
-    left: 2px;
-    top: 8px;
+  left: 2px;
+  top: 8px;
 }
 
 .gif6 {
-    top: 42px;
-    right: 102px;
-    width: 111px;
+  top: 42px;
+  right: 102px;
+  width: 111px;
 }
 
 .gif7 {
-    top: 94px;
-    left: 355px;
-    width: 55px;
+  top: 94px;
+  left: 355px;
+  width: 55px;
 }
 
 /*=========================
 SECCION 2
 =========================*/
 #seccion_2 .lab_interno {
-    clip-path: url(#clip_2);
+  clip-path: url(#clip_2);
 }
 
-#clip_2_1, #clip_2_1s {
-    width: 1200px;
-    height: 37vh;
-    y: 7vh;
-    x: calc(50vw - 550px);
-    rx: 200px;
-    ry: 200px;
+#clip_2_1,
+#clip_2_1s {
+  width: 1200px;
+  height: 37vh;
+  y: 7vh;
+  x: calc(50vw - 550px);
+  rx: 200px;
+  ry: 200px;
 }
 
-#clip_2_2, #clip_2_2s {
-    width: 1400px;
-    height: 37vh;
-    y: 40vh;
-    x: calc(50vw - 700px);
-    rx: 200px;
-    ry: 200px;
+#clip_2_2,
+#clip_2_2s {
+  width: 1400px;
+  height: 37vh;
+  y: 40vh;
+  x: calc(50vw - 700px);
+  rx: 200px;
+  ry: 200px;
 }
 
-#clip_2_3, #clip_2_3s {
-    width: 850px;
-    y: 75vh;
-    height: 80px;
-    rx: 40;
-    ry: 40;
-    x: calc(50vw - 100px);
+#clip_2_3,
+#clip_2_3s {
+  width: 850px;
+  y: 75vh;
+  height: 80px;
+  rx: 40;
+  ry: 40;
+  x: calc(50vw - 100px);
 }
 
-#clip_2_4, #clip_2_4s {
-    width: 750px;
+#clip_2_4,
+#clip_2_4s {
+  width: 750px;
+  y: 70vh;
+  height: 50vh;
+  rx: 220;
+  ry: 220;
+  x: calc(55vw - 700px);
+}
+
+@media screen and (max-width: 1600px) {
+  #clip_2_3,
+  #clip_2_3s {
+    width: 780px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  #clip_2_1,
+  #clip_2_1s {
+    width: 1100px;
+    x: calc(50vw - 520px);
+    rx: 180px;
+    ry: 180px;
+  }
+
+  #clip_2_2,
+  #clip_2_2s {
+    width: 1300px;
+    x: calc(50vw - 650px);
+  }
+
+  #clip_2_3,
+  #clip_2_3s {
+    width: 680px;
+  }
+
+  #clip_2_4,
+  #clip_2_4s {
+    width: 650px;
     y: 70vh;
     height: 50vh;
     rx: 220;
     ry: 220;
-    x: calc(55vw - 700px);
-}
-
-@media screen and (max-width: 1600px) {
-    #clip_2_3, #clip_2_3s {
-        width: 780px;
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    #clip_2_1, #clip_2_1s {
-        width: 1100px;
-        x: calc(50vw - 520px);
-        rx: 180px;
-        ry: 180px;
-    }
-
-    #clip_2_2, #clip_2_2s {
-        width: 1300px;
-        x: calc(50vw - 650px);
-    }
-
-    #clip_2_3, #clip_2_3s {
-        width: 680px;
-    }
-
-    #clip_2_4, #clip_2_4s {
-        width: 650px;
-        y: 70vh;
-        height: 50vh;
-        rx: 220;
-        ry: 220;
-        x: calc(55vw - 600px);
-    }
+    x: calc(55vw - 600px);
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    #clip_2_1, #clip_2_1s {
-        width: 900px;
-        x: calc(50vw - 420px);
-    }
+  #clip_2_1,
+  #clip_2_1s {
+    width: 900px;
+    x: calc(50vw - 420px);
+  }
 
-    #clip_2_2, #clip_2_2s {
-        width: 1000px;
-        x: calc(50vw - 500px);
-    }
+  #clip_2_2,
+  #clip_2_2s {
+    width: 1000px;
+    x: calc(50vw - 500px);
+  }
 
-    #clip_2_3, #clip_2_3s {
-        width: 580px;
-    }
+  #clip_2_3,
+  #clip_2_3s {
+    width: 580px;
+  }
 
-    #clip_2_4, #clip_2_4s {
-        width: 550px;
-        y: 70vh;
-        height: 50vh;
-        rx: 200;
-        ry: 200;
-        x: calc(55vw - 500px);
-    }
+  #clip_2_4,
+  #clip_2_4s {
+    width: 550px;
+    y: 70vh;
+    height: 50vh;
+    rx: 200;
+    ry: 200;
+    x: calc(55vw - 500px);
+  }
 
-    #seccion_2 .lab_contenido_grupo {
-        margin-top: 0!important;
-    }
+  #seccion_2 .lab_contenido_grupo {
+    margin-top: 0 !important;
+  }
 }
 
 #seccion_2 .lab_interno_texturas div.esc2 {
-    background-position: center -5%;
+  background-position: center -5%;
 }
 
 /*Lab Contenido S2*/
 #seccion_2 .lab_contenido_grupo {
-    width: 1333px;
-    margin-top: 7.5vh;
+  width: 1333px;
+  margin-top: 7.5vh;
 }
 
 /*Seccion 2 Textareas*/
 #seccion_2 #loQueAmas2 {
-    left: 380px;
-    top: 130px;
-    box-shadow: 0 0 0 4px #24aded inset;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
+  left: 380px;
+  top: 130px;
+  box-shadow: 0 0 0 4px #24aded inset;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
 }
 
-#seccion_2 #loQueAmas2:hover, #seccion_2 #loQueAmas2:focus {
-    box-shadow: 0 0 0 8px #24aded inset;
+#seccion_2 #loQueAmas2:hover,
+#seccion_2 #loQueAmas2:focus {
+  box-shadow: 0 0 0 8px #24aded inset;
 }
 
 #seccion_2 #loQueElMundoNecesita {
-    right: 90px;
-    top: 30px;
-    box-shadow: 0 0 0 4px #91cf50 inset;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
+  right: 90px;
+  top: 30px;
+  box-shadow: 0 0 0 4px #91cf50 inset;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
 }
 
-#seccion_2 #loQueElMundoNecesita:hover, #seccion_2 #loQueElMundoNecesita:focus {
-    box-shadow: 0 0 0 8px #91cf50 inset;
+#seccion_2 #loQueElMundoNecesita:hover,
+#seccion_2 #loQueElMundoNecesita:focus {
+  box-shadow: 0 0 0 8px #91cf50 inset;
 }
 
 #seccion_2 #mision {
-    left: 290px;
-    bottom: 150px;
-    box-shadow: 0 0 0 4px #9c328f inset;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
+  left: 290px;
+  bottom: 150px;
+  box-shadow: 0 0 0 4px #9c328f inset;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
 }
 
-#seccion_2 #mision:hover, #seccion_2 #mision:focus {
-    box-shadow: 0 0 0 8px #9c328f inset;
+#seccion_2 #mision:hover,
+#seccion_2 #mision:focus {
+  box-shadow: 0 0 0 8px #9c328f inset;
 }
 
 /*Seccion 2 Probetas*/
 #probeta_loQueAmas2 {
-    position: absolute;
-    height: 217px;
-    width: 170px;
-    top: 137px;
-    left: 182px;
-    background: url("../img/fondo-probeta_2_1.png") no-repeat center;
-    background-size: contain;
-    /* z-index: 1; */
+  position: absolute;
+  height: 217px;
+  width: 170px;
+  top: 137px;
+  left: 182px;
+  background: url("../img/fondo-probeta_2_1.png") no-repeat center;
+  background-size: contain;
+  /* z-index: 1; */
 }
 
 #probeta_loQueAmas2 .gota {
-    left: 503px;
-    top: 19px;
-    opacity: 0;
+  left: 503px;
+  top: 19px;
+  opacity: 0;
 }
 
 #probeta_loQueAmas2.anim .gota {
-    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+  animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
 
 #probeta_loQueAmas2 .liquido {
-    fill: #24acec;
+  fill: #24acec;
 }
 
 #prob_loQueAmas2 {
-    left: 4px
+  left: 4px;
 }
 
 #probeta_loQueElMundoNecesita {
-    position: absolute;
-    height: 239px;
-    width: 182px;
-    top: 245px;
-    right: 116px;
-    left: initial;
-    background: url("../img/fondo_probeta_2_2.png") no-repeat center;
-    background-size: contain;
-    /* z-index: 1; */
+  position: absolute;
+  height: 239px;
+  width: 182px;
+  top: 245px;
+  right: 116px;
+  left: initial;
+  background: url("../img/fondo_probeta_2_2.png") no-repeat center;
+  background-size: contain;
+  /* z-index: 1; */
 }
 
 #probeta_loQueElMundoNecesita .gota {
-    right: 463px;
-    top: -85px;
-    opacity: 0;
+  right: 463px;
+  top: -85px;
+  opacity: 0;
 }
 
 #probeta_loQueElMundoNecesita.anim .gota {
-    animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
+  animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
 
 #probeta_loQueElMundoNecesita .liquido {
-    fill: #91cf50;
+  fill: #91cf50;
 }
 
 #probeta_loQueElMundoNecesita.anim .liquido {
-    animation: loQueElMundoNecesita 1s linear infinite;
+  animation: loQueElMundoNecesita 1s linear infinite;
 }
 
 @keyframes loQueElMundoNecesita {
-    from {
-        transform: translate(-128px, 0)
-    }
-    to {
-        transform: translate(0, 0)
-    }
+  from {
+    transform: translate(-128px, 0);
+  }
+  to {
+    transform: translate(0, 0);
+  }
 }
 
 #probeta_mision {
-    position: absolute;
-    height: 193px;
-    width: 311px;
-    top: initial;
-    bottom: 50px;
-    left: 406px;
+  position: absolute;
+  height: 193px;
+  width: 311px;
+  top: initial;
+  bottom: 50px;
+  left: 406px;
 }
 
 /*Tubos*/
 #tubo_2_1 {
-    position: absolute;
-    top: -83px;
-    left: 84px;
-    z-index: 3;
+  position: absolute;
+  top: -83px;
+  left: 84px;
+  z-index: 3;
 }
 
 #tubo_2_1 path {
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: #24acec;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #24acec;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
 }
 
 .anim #tubo_2_1 path {
-    animation: tubo 3s linear 3s forwards;
+  animation: tubo 3s linear 3s forwards;
 }
 
 #tubo_2_2 {
-    position: absolute;
-    top: -125px;
-    left: -201px;
-    z-index: 3;
+  position: absolute;
+  top: -125px;
+  left: -201px;
+  z-index: 3;
 }
 
 #tubo_2_2 path {
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: #91cf50;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #91cf50;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
 }
 #tubo_2_2 path {
-    stroke-dashoffset: -1000;
+  stroke-dashoffset: -1000;
 }
 .anim #tubo_2_2 path {
-    animation: tubo 3s linear .5s forwards;
+  animation: tubo 3s linear 0.5s forwards;
 }
 
 .anim #tubo_2_2 path:last-child {
-    animation-delay: 0s;
+  animation-delay: 0s;
 }
 
 #tubo_2_3 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
 }
 
 #tubo_2_3 path {
-    fill: transparent;
-    stroke-width: 2px;
-    stroke: #9c328f;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+  fill: transparent;
+  stroke-width: 2px;
+  stroke: #9c328f;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
 }
 
 .anim #tubo_2_3 path {
-    animation: tubo 3s linear 9s forwards;
+  animation: tubo 3s linear 9s forwards;
 }
 
 #seccion_2 .flotante {
-    right: 380px;
-    top: 300px;
-    z-index: 4;
+  right: 380px;
+  top: 300px;
+  z-index: 4;
 }
 
 .flotante {
-    position: absolute;
+  position: absolute;
 }
 
 /*=========================
 SECCION 3
 =========================*/
 #seccion_3 .lab_interno {
-    clip-path: url(#clip_3);
+  clip-path: url(#clip_3);
 }
 
-#clip_3_1, #clip_3_1s {
-    width: 550px;
-    y: 10vh;
-    height: 20vh;
-    rx: 100px;
-    ry: 100px;
-    x: calc(50vw + 130px);
+#clip_3_1,
+#clip_3_1s {
+  width: 550px;
+  y: 10vh;
+  height: 20vh;
+  rx: 100px;
+  ry: 100px;
+  x: calc(50vw + 130px);
 }
 
-#clip_3_2, #clip_3_2s {
-    width: 1340px;
-    y: 27vh;
-    height: 70vh;
-    rx: 380;
-    ry: 380;
-    x: calc(50vw - 700px);
+#clip_3_2,
+#clip_3_2s {
+  width: 1340px;
+  y: 27vh;
+  height: 70vh;
+  rx: 380;
+  ry: 380;
+  x: calc(50vw - 700px);
 }
 
-#clip_3_3, #clip_3_3s {
-    width: 620px;
-    y: 12vh;
-    height: 25vh;
-    rx: 120;
-    ry: 120;
-    x: calc(25vw - 80px);
+#clip_3_3,
+#clip_3_3s {
+  width: 620px;
+  y: 12vh;
+  height: 25vh;
+  rx: 120;
+  ry: 120;
+  x: calc(25vw - 80px);
 }
 
-#clip_3_4, #clip_3_4s {
-    width: 1600px;
-    y: 78vh;
-    height: 20vh;
-    rx: 80;
-    ry: 80;
-    x: calc(50vw - 800px);
+#clip_3_4,
+#clip_3_4s {
+  width: 1600px;
+  y: 78vh;
+  height: 20vh;
+  rx: 80;
+  ry: 80;
+  x: calc(50vw - 800px);
 }
 
-#clip_3_5, #clip_3_5s {
-    width: 200px;
-    y: 90vh;
-    height: 20vh;
-    rx: 80;
-    ry: 80;
-    x: calc(50vw - 159px);
+#clip_3_5,
+#clip_3_5s {
+  width: 200px;
+  y: 90vh;
+  height: 20vh;
+  rx: 80;
+  ry: 80;
+  x: calc(50vw - 159px);
 }
 
 @media screen and (max-width: 1600px) {
-    #clip_3_3, #clip_3_3s {
-        width: 420px;
-        x: calc(25vw - 180px);
-    }
+  #clip_3_3,
+  #clip_3_3s {
+    width: 420px;
+    x: calc(25vw - 180px);
+  }
 }
 
 @media screen and (max-width: 1400px) {
-    #clip_3_2, #clip_3_2s {
-        width: 1140px;
-        rx: 280;
-        ry: 280;
-        x: calc(50vw - 600px);
-    }
+  #clip_3_2,
+  #clip_3_2s {
+    width: 1140px;
+    rx: 280;
+    ry: 280;
+    x: calc(50vw - 600px);
+  }
 
-    #clip_3_4, #clip_3_4s {
-        width: 1160px;
-        rx: 80;
-        ry: 80;
-        x: calc(50vw - 600px);
-    }
+  #clip_3_4,
+  #clip_3_4s {
+    width: 1160px;
+    rx: 80;
+    ry: 80;
+    x: calc(50vw - 600px);
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    #clip_3_2, #clip_3_2s {
-        width: 940px;
-        rx: 280;
-        ry: 280;
-        x: calc(50vw - 470px);
-    }
+  #clip_3_2,
+  #clip_3_2s {
+    width: 940px;
+    rx: 280;
+    ry: 280;
+    x: calc(50vw - 470px);
+  }
 }
 
 #seccion_3 .lab_interno_texturas div.esc2 {
-    background-position: center -10%;
+  background-position: center -10%;
 }
 
 /*seccion 3 Fondo*/
 #seccion_3 .lab_contenido_grupo {
-    width: 1424px;
-    margin-top: 7vh
+  width: 1424px;
+  margin-top: 7vh;
 }
 
 /*Seccion 3 Textareas*/
 #seccion_3 #loQueElMundoNecesita2 {
-    left: 160px;
-    top: 400px;
-    box-shadow: 0 0 0 4px #91cf50 inset;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
+  left: 160px;
+  top: 400px;
+  box-shadow: 0 0 0 4px #91cf50 inset;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
 }
 
-#seccion_3 #loQueElMundoNecesita2:hover, #seccion_3 #loQueElMundoNecesita2:focus {
-    box-shadow: 0 0 0 8px #91cf50 inset;
+#seccion_3 #loQueElMundoNecesita2:hover,
+#seccion_3 #loQueElMundoNecesita2:focus {
+  box-shadow: 0 0 0 8px #91cf50 inset;
 }
 #seccion_3 #porLoQueTePagan {
-    left: 860px;
-    top: 160px;
-    box-shadow: 0 0 0 4px #f9df93 inset;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
+  left: 860px;
+  top: 160px;
+  box-shadow: 0 0 0 4px #f9df93 inset;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
 }
 
-#seccion_3 #porLoQueTePagan:hover, #seccion_3 #porLoQueTePagan:focus {
-    box-shadow: 0 0 0 8px #f9df93 inset;
+#seccion_3 #porLoQueTePagan:hover,
+#seccion_3 #porLoQueTePagan:focus {
+  box-shadow: 0 0 0 8px #f9df93 inset;
 }
 #seccion_3 #vocacion {
-    left: 790px;
-    bottom: 90px;
-    box-shadow: 0 0 0 4px #15696d inset;
-    width: 280px;
-    min-width: 280px;
-    max-width: 280px;
+  left: 790px;
+  bottom: 90px;
+  box-shadow: 0 0 0 4px #15696d inset;
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
 }
 
-#seccion_3 #vocacion:hover, #seccion_3 #vocacion:focus {
-    box-shadow: 0 0 0 8px #15696d inset;
+#seccion_3 #vocacion:hover,
+#seccion_3 #vocacion:focus {
+  box-shadow: 0 0 0 8px #15696d inset;
 }
 
 /*=========================
 SECCION 4
 =========================*/
 #seccion_4 .lab_interno {
-    clip-path: url(#clip_4);
+  clip-path: url(#clip_4);
 }
 
-#clip_4_1, #clip_4_1s {
-    width: 700px;
-    y: 8vh;
-    height: 30vh;
-    rx: 80;
-    ry: 80;
-    x: calc(50vw - 600px);
+#clip_4_1,
+#clip_4_1s {
+  width: 700px;
+  y: 8vh;
+  height: 30vh;
+  rx: 80;
+  ry: 80;
+  x: calc(50vw - 600px);
 }
 
-#clip_4_2, #clip_4_2s {
-    width: 700px;
-    y: 18vh;
-    height: 30vh;
-    rx: 80;
-    ry: 80;
-    x: calc(50vw - 200px);
+#clip_4_2,
+#clip_4_2s {
+  width: 700px;
+  y: 18vh;
+  height: 30vh;
+  rx: 80;
+  ry: 80;
+  x: calc(50vw - 200px);
 }
 
-#clip_4_3, #clip_4_3s {
-    width: 1130px;
-    y: 30vh;
-    height: 30vh;
-    rx: 60;
-    ry: 60;
-    x: calc(50vw - 550px);
+#clip_4_3,
+#clip_4_3s {
+  width: 1130px;
+  y: 30vh;
+  height: 30vh;
+  rx: 60;
+  ry: 60;
+  x: calc(50vw - 550px);
 }
 
-#clip_4_4, #clip_4_4s {
-    width: 1030px;
-    y: 55vh;
-    height: 20vh;
-    rx: 100;
-    ry: 100;
-    x: calc(50vw - 600px);
+#clip_4_4,
+#clip_4_4s {
+  width: 1030px;
+  y: 55vh;
+  height: 20vh;
+  rx: 100;
+  ry: 100;
+  x: calc(50vw - 600px);
 }
 
-#clip_4_5, #clip_4_5s {
-    width: 1630px;
-    y: 70vh;
-    height: 50vh;
-    rx: 160;
-    ry: 160;
-    x: calc(50vw - 950px);
+#clip_4_5,
+#clip_4_5s {
+  width: 1630px;
+  y: 70vh;
+  height: 50vh;
+  rx: 160;
+  ry: 160;
+  x: calc(50vw - 950px);
 }
 
 @media screen and (max-width: 1600px) {
 }
 
 @media screen and (max-width: 1400px) {
-    #clip_4_3, #clip_4_3s {
-        width: 1030px;
-        x: calc(50vw - 450px);
-    }
+  #clip_4_3,
+  #clip_4_3s {
+    width: 1030px;
+    x: calc(50vw - 450px);
+  }
 
-    #clip_4_4, #clip_4_4s {
-        width: 960px;
-        x: calc(50vw - 550px);
-    }
+  #clip_4_4,
+  #clip_4_4s {
+    width: 960px;
+    x: calc(50vw - 550px);
+  }
 
-    #clip_4_5, #clip_4_5s {
-        width: 1530px;
-    }
+  #clip_4_5,
+  #clip_4_5s {
+    width: 1530px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    #clip_4_1, #clip_4_1s {
+  #clip_4_1,
+  #clip_4_1s {
     width: 600px;
     x: calc(50vw - 500px);
-}
-#clip_4_2, #clip_4_2s {
+  }
+  #clip_4_2,
+  #clip_4_2s {
     width: 560px;
     y: 18vh;
     height: 30vh;
     rx: 80;
     ry: 80;
     x: calc(50vw - 200px);
-}
-    #clip_4_3, #clip_4_3s {
-        width: 870px;
-        x: calc(50vw - 380px);
-    }
-    #clip_4_4, #clip_4_4s {
-        width: 860px;
-        x: calc(50vw - 420px);
-    }
+  }
+  #clip_4_3,
+  #clip_4_3s {
+    width: 870px;
+    x: calc(50vw - 380px);
+  }
+  #clip_4_4,
+  #clip_4_4s {
+    width: 860px;
+    x: calc(50vw - 420px);
+  }
 }
 
 #seccion_4 .lab_interno_texturas div.esc2 {
-    background-position: center -50%;
+  background-position: center -50%;
 }
 
 /*seccion 4 Fondo*/
 #seccion_4 .lab_contenido_grupo {
-    width: 1704px;
-    margin-left: -12%;
-    margin-top: -7vh;
+  width: 1704px;
+  margin-left: -12%;
+  margin-top: -7vh;
 }
 /*Seccion 4 Textareas*/
 #seccion_4 #loQueEresBueno2 {
-    left: 460px;
-    top: 160px;
-    box-shadow: 0 0 0 4px #f69c00 inset;
-    width: 320px;
-    min-width: 320px;
-    max-width: 320px;
+  left: 460px;
+  top: 160px;
+  box-shadow: 0 0 0 4px #f69c00 inset;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
 }
 
-#seccion_4 #loQueEresBueno2:hover, #seccion_4 #loQueEresBueno2:focus {
-    box-shadow: 0 0 0 8px #f69c00 inset;
+#seccion_4 #loQueEresBueno2:hover,
+#seccion_4 #loQueEresBueno2:focus {
+  box-shadow: 0 0 0 8px #f69c00 inset;
 }
 #seccion_4 #porLoQueTePagan2 {
-    left: 1200px;
-    top: 360px;
-    box-shadow: 0 0 0 4px #f9df93 inset;
-    width: 320px;
-    min-width: 320px;
-    max-width: 320px;
+  left: 1200px;
+  top: 360px;
+  box-shadow: 0 0 0 4px #f9df93 inset;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
 }
 
-#seccion_4 #porLoQueTePagan2:hover, #seccion_4 #porLoQueTePagan2:focus {
-    box-shadow: 0 0 0 8px #f9df93 inset;
+#seccion_4 #porLoQueTePagan2:hover,
+#seccion_4 #porLoQueTePagan2:focus {
+  box-shadow: 0 0 0 8px #f9df93 inset;
 }
 #seccion_4 #profesion {
-    left: 1070px;
-    bottom: 120px;
-    box-shadow: 0 0 0 4px #e84b60 inset;
-    width: 320px;
-    min-width: 320px;
-    max-width: 320px;
+  left: 1070px;
+  bottom: 120px;
+  box-shadow: 0 0 0 4px #e84b60 inset;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
 }
 
-#seccion_4 #profesion:hover, #seccion_4 #profesion:focus {
-    box-shadow: 0 0 0 8px #e84b60 inset;
+#seccion_4 #profesion:hover,
+#seccion_4 #profesion:focus {
+  box-shadow: 0 0 0 8px #e84b60 inset;
 }
 /*=========================
 SECCION 5
 =========================*/
 #seccion_5 .lab_interno {
-    clip-path: url(#clip_5);
+  clip-path: url(#clip_5);
 }
 
-#clip_5_1, #clip_5_1s {
-    width:40vh;
-    y: 10vh;
-    height: 40vh;
-    rx: 500px;
-    ry: 500px;
-    x: calc(100vw - 50vh);
+#clip_5_1,
+#clip_5_1s {
+  width: 40vh;
+  y: 10vh;
+  height: 40vh;
+  rx: 500px;
+  ry: 500px;
+  x: calc(100vw - 50vh);
 }
 
-#clip_5_2, #clip_5_2s {
-    width: 100vw;
-    y: 10vh;
-    height: 25vh;
-    rx: 160;
-    ry: 160;
-    x: calc( -20vh);
+#clip_5_2,
+#clip_5_2s {
+  width: 100vw;
+  y: 10vh;
+  height: 25vh;
+  rx: 160;
+  ry: 160;
+  x: calc(-20vh);
 }
 
-#clip_5_3, #clip_5_3s {
-    width: 920px;
-    y: 20vh;
-    height: 80vh;
-    rx: 160;
-    ry: 160;
-    x: calc(50vw - 480px);
+#clip_5_3,
+#clip_5_3s {
+  width: 920px;
+  y: 20vh;
+  height: 80vh;
+  rx: 160;
+  ry: 160;
+  x: calc(50vw - 480px);
 }
-
-
-
 
 @media screen and (max-width: 1400px) {
-    #clip_5_3, #clip_5_3s {
+  #clip_5_3,
+  #clip_5_3s {
     width: 760px;
     x: calc(50vw - 420px);
-}
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    #clip_5_3, #clip_5_3s {
+  #clip_5_3,
+  #clip_5_3s {
     width: 640px;
     x: calc(50vw - 340px);
-}
+  }
 }
 
 #seccion_5 .lab_interno_texturas div.esc2 {
-    background-position: center -60%;
+  background-position: center -60%;
 }
 
 /*seccion 5 Fondo*/
 #seccion_5 .lab_contenido_grupo {
-    width: 1513px;
-    margin-left: -8%
+  width: 1513px;
+  margin-left: -8%;
 }
 /*seccion 5 textareas*/
 #seccion_5 #proposito {
-    left: 50%;
-    margin-left: -110px;
-    bottom: -40px;
-    box-shadow: 0 0 0 4px #3858b2 inset;
-    width: 360px;
-    min-width: 360px;
-    max-width: 360px;
-    min-height: 200px;
+  left: 50%;
+  margin-left: -110px;
+  bottom: -40px;
+  box-shadow: 0 0 0 4px #3858b2 inset;
+  width: 360px;
+  min-width: 360px;
+  max-width: 360px;
+  min-height: 200px;
 }
 
-#seccion_5 #proposito:hover, #seccion_5 #proposito:focus {
-    box-shadow: 0 0 0 8px #3858b2 inset;
+#seccion_5 #proposito:hover,
+#seccion_5 #proposito:focus {
+  box-shadow: 0 0 0 8px #3858b2 inset;
 }
 /*Contenedores*/
-.lab_contenido, .elementos_flotantes {
-    max-width: 1360px;
+.lab_contenido,
+.elementos_flotantes {
+  max-width: 1360px;
 }
 
 @media screen and (max-width: 1400px) {
-    .lab_contenido, .elementos_flotantes {
-        max-width: 1160px;
-    }
+  .lab_contenido,
+  .elementos_flotantes {
+    max-width: 1160px;
+  }
 
-    .lab_contenido_grupo {
-        transform: translate(-50%, -50%) scale(.85)
-    }
+  .lab_contenido_grupo {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
 }
 
 @media screen and (max-width: 1200px) {
-    .lab_contenido, .elementos_flotantes {
-        max-width: 960px;
-    }
+  .lab_contenido,
+  .elementos_flotantes {
+    max-width: 960px;
+  }
 
-    .lab_contenido_grupo {
-        transform: translate(-50%, -50%) scale(.7)
-    }
+  .lab_contenido_grupo {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
 }
 /*LOGIN*/
 .contenedor-login {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #1b7899;
-    
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1b7899;
 }
 @keyframes entrar {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 1
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .contenedor-login-max {
-    max-width: 1920px;
-    margin: 0 auto;
-    position: relative;
-    
-    
-   height: 62.5vw;
-    opacity: 0;
-    animation: entrar 3s forwards;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+
+  height: 62.5vw;
+  opacity: 0;
+  animation: entrar 3s forwards;
 }
 .contenedor-login .fondo img {
-    width: 100%;
-    
+  width: 100%;
 }
 @keyframes card {
-    from {
-        opacity: 0;
-        top: 75vh;
-    }
-    to {
-        opacity: 1;
-        top: 58vh;
-    }
+  from {
+    opacity: 0;
+    top: 75vh;
+  }
+  to {
+    opacity: 1;
+    top: 58vh;
+  }
 }
 .contenedor-login .card {
-    position: fixed;
-    
-    left: 50%;
-    opacity: 0;
-        top: 75vh;
-    transform: translate(-50%, 0);
-    z-index: 10;
-    animation: card 1s ease-out 3s forwards;
+  position: fixed;
+
+  left: 50%;
+  opacity: 0;
+  top: 75vh;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  animation: card 1s ease-out 3s forwards;
 }
 .contenedor-login .card img {
-    max-height: 37vh;
+  max-height: 37vh;
 }
 .contenedor-login .timon {
-    position: absolute;
-    width: 8%;
-    top: 27.6%;
-    left: 49.5%;
+  position: absolute;
+  width: 8%;
+  top: 27.6%;
+  left: 49.5%;
 }
 .contenedor-login .timon img,
 .contenedor-login .mano img {
-    width: 100%;
+  width: 100%;
 }
 .contenedor-login .timon img:first-child {
-    position: relative;
-    z-index:2
+  position: relative;
+  z-index: 2;
 }
 .contenedor-login .timon .sombra {
-    position: absolute;
-    top: 5%;
-    left: -5%;
-    
+  position: absolute;
+  top: 5%;
+  left: -5%;
 }
 @keyframes mano {
-    from {
-        opacity: .2
-    }
-    to {
-        opacity: 1
-    }
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .contenedor-login .mano {
-    position: absolute;
-    width: 2%;
-    top: 30.6%;
-    left: 31.4%;
+  position: absolute;
+  width: 2%;
+  top: 30.6%;
+  left: 31.4%;
 }
 .contenedor-login .mano a {
-    animation: mano 2s infinite;
+  animation: mano 2s infinite;
 }
 .contenedor-login .mano a:hover {
-    animation-play-state: paused;
-    filter:hue-rotate(-180deg);
-    opacity: 1 !important
-} 
+  animation-play-state: paused;
+  filter: hue-rotate(-180deg);
+  opacity: 1 !important;
+}
 @keyframes timon {
-    from {
-        transform: rotate(-700deg);
-    }
-    to {
-        transform: rotate(0);
-    }
+  from {
+    transform: rotate(-700deg);
+  }
+  to {
+    transform: rotate(0);
+  }
 }
 .contenedor-login .timon img {
-    animation: timon 2s ease 1s;
+  animation: timon 2s ease 1s;
+}
+/*PROPOSITO*/
+#canvas_escritorio {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  z-index: 12000;
+  border: 1px solid red;
+}
+#canvas_mobile {
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+  z-index: 12001;
+  border: 1px solid #24acec;
+}
+#canvas_escritorio,
+#canvas_mobile {
+  display: none;
+}
+#canvas_img_escritorio,
+#canvas_img_mobile {
+  display: none;
+}
+#descarga_escritorio,
+#descarga_mobile {
+  background: #24aded;
+  border: 4px solid #1b203c;
+  position: absolute;
+  left: calc(50% + 200px);
+  bottom : 180px;
+  z-index: 20;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 16px;
+  border-radius: 24px;
+  color: white;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-bottom: 40px;
+  opacity: 0;
+  
+  pointer-events: none;
+transition: all 2s ease;
+}
+#descarga_mobile {
+  background: #9c328f;
+  border: 4px solid #1b203c;
+  bottom : 80px;
+  transition-delay: 1s;
+  
+}
+#descarga_escritorio.mostrar,
+#descarga_mobile.mostrar {
+opacity: 1;
+display: block;
+margin-bottom: 0;
+pointer-events: initial;
 }
