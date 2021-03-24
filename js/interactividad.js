@@ -11,6 +11,7 @@ for (let i = 0; i < scenesSelector.length; i++) {
 }
 //Respuestas
 const respuestas = {};
+
 const textAreas = document.querySelectorAll(".lab_textarea");
 const proposito = document.getElementById("proposito");
 
@@ -20,7 +21,20 @@ function presionar(e) {
   }
   console.log(e);
 }
+//Guardado de sesion
+
 textAreas.forEach(function (el, index) {
+  //Verificar sesion
+  const id = el.id;
+  if (localStorage[id]) {
+    el.value = localStorage[id];
+    el.disabled = false;
+    document.getElementById(`probeta_${el.id}`).classList.add("anim");
+    if (el.classList.contains("final")) {
+      el.closest(".section").nextElementSibling.classList.remove("oculta");
+    }
+  }
+  //Usar Enter
   el.addEventListener("keydown", (e) => {
     if (e.keyCode === 13) {
       el.blur();
@@ -29,8 +43,10 @@ textAreas.forEach(function (el, index) {
   el.addEventListener("blur", () => {
     if (el.value) {
       //Guardar respuestas en Obj respuestas
-      const id = el.id;
+
       respuestas[id] = el.value;
+
+      localStorage[id] = el.value;
 
       //Habilitar final
       if (el.classList.contains("previo")) {
@@ -55,8 +71,8 @@ textAreas.forEach(function (el, index) {
 });
 
 //Popovers
-$(function () {
-  $('[data-toggle="popover"]').popover({
+jQuery(function () {
+  jQuery('[data-toggle="popover"]').popover({
     html: true,
   });
 });
