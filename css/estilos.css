@@ -4,7 +4,25 @@ body {
   margin: 0;
   background: #f7c800 url("../img/textura-amarilla.png") repeat center;
 }
-
+#loading {
+  position: fixed;
+  background: #f7c800 url("../img/textura-amarilla.png") repeat center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  transition: opacity 2s ease;
+}
+#loading img {
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#fullpage {
+  opacity: 0;
+  transition: opacity 2s ease 1s;
+}
 /*Animaciones*/
 @keyframes destello {
   from {
@@ -93,7 +111,8 @@ body {
   z-index: 3;
 }
 
-.anim .liquido_papa {
+.anim .liquido_papa,
+.init .liquido_papa {
   animation-name: llenarProbeta;
   animation-iteration-count: 1;
   animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
@@ -101,7 +120,8 @@ body {
   animation-fill-mode: forwards;
 }
 
-.anim .liquido {
+.anim .liquido,
+.init .liquido {
   animation-name: ondasProbeta;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -254,8 +274,9 @@ body {
 }
 
 #seccion_1 .el_1_1 {
-  right: calc(100% - 15vw);
+  right: calc(100% - 150px);
   top: -110px;
+  z-index: 2;
 }
 
 #seccion_1 .el_1_2 {
@@ -545,7 +566,28 @@ body {
   background: url("../img/fondo_probeta_3.png") no-repeat center bottom;
   background-size: contain;
 }
-
+#probeta_pasion .flama {
+  position: absolute;
+  bottom: -70px;
+  width: 50px;
+  left: 60px;
+  
+  transform-origin: center bottom;
+  opacity: 0;
+}
+.anim .flama {
+  animation: flama .5s ease-in-out infinite alternate;
+}
+@keyframes flama {
+  from {
+    transform: scale(.85) skew(4deg);
+    opacity: .8;
+  }
+  to {
+    transform: scale(1);
+     opacity: 1;
+  }
+}
 #probeta_pasion .liquido {
   fill: #f04100;
   width: 164px;
@@ -901,13 +943,24 @@ SECCION 2
 #probeta_loQueAmas2.anim .gota {
   animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
+@keyframes ondasProbeta-s21 {
+  0% {
+    transform: translate(-100px, 0);
+  }
 
+  100% {
+    transform: translate(0, 0);
+  }
+}
 #probeta_loQueAmas2 .liquido {
   fill: #24acec;
 }
 
 #prob_loQueAmas2 {
   left: 4px;
+}
+#probeta_loQueAmas2.anim .liquido {
+  animation-name: ondasProbeta-s21;
 }
 
 #probeta_loQueElMundoNecesita {
@@ -1026,6 +1079,7 @@ SECCION 2
   right: 380px;
   top: 300px;
   z-index: 4;
+  width: 93px;
 }
 
 .flotante {
@@ -1394,11 +1448,16 @@ SECCION 5
   width: 1513px;
   margin-left: -8%;
 }
+#lab_fondo_5 {
+  position: relative;
+  top: -21px;
+
+}
 /*seccion 5 textareas*/
 #seccion_5 #proposito {
   left: 50%;
   margin-left: -110px;
-  bottom: -40px;
+  bottom: -10px;
   box-shadow: 0 0 0 4px #3858b2 inset;
   width: 360px;
   min-width: 360px;
@@ -1562,40 +1621,56 @@ SECCION 5
 #canvas_img_mobile {
   display: none;
 }
+#caja-descarga {
+  position: absolute;
+  left: calc(50% + 170px);
+  bottom : 40px;
+  z-index: 99;
+  width: 270px;
+
+}
+#caja-descarga span {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Trebuchet MS, sans-serif;
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 2s ease;
+}
 #descarga_escritorio,
 #descarga_mobile {
   background: #24aded;
-  border: 4px solid #1b203c;
-  position: absolute;
-  left: calc(50% + 200px);
-  bottom : 180px;
+  position: relative;
+  display: block;
   z-index: 20;
   font-size: 18px;
-  font-family: sans-serif;
+  font-family: Trebuchet MS, sans-serif;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 16px;
+  padding: 8px 12px;
   border-radius: 24px;
   color: white;
   letter-spacing: 0.05em;
   cursor: pointer;
-  margin-bottom: 40px;
-  opacity: 0;
+  text-align: center;
   
+  text-decoration: none ;
+  opacity: 0;
   pointer-events: none;
-transition: all 2s ease;
+transition: all 2s ease .5s;
 }
 #descarga_mobile {
   background: #9c328f;
-  border: 4px solid #1b203c;
-  bottom : 80px;
+  margin-top: 20px;
   transition-delay: 1s;
   
 }
-#descarga_escritorio.mostrar,
-#descarga_mobile.mostrar {
+.mostrar #descarga_escritorio,
+.mostrar #descarga_mobile,
+ #caja-descarga.mostrar span {
 opacity: 1;
-display: block;
-margin-bottom: 0;
 pointer-events: initial;
 }
+

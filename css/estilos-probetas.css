@@ -391,35 +391,35 @@ SECCION 5   PROBETAS
     stroke-dashoffset: 1000;
 }
 
-#tubo_verde path, #tubo_verde line {
+.init #tubo_verde path, .init #tubo_verde line {
     animation: tubo 3s linear forwards;
 }
 
-#tubo_verde .tub1 {
+.init #tubo_verde .tub1 {
     stroke-dashoffset: -1000;
     animation-delay: 0;
 }
 
-#tubo_verde .tub2 {
+.init #tubo_verde .tub2 {
     stroke-dashoffset: -1000;
     animation-delay: .5s;
 }
 
-#tubo_verde .tub4 {
+.init #tubo_verde .tub4 {
     stroke-dashoffset: 1000;
     animation-delay: 3.5s;
 }
 
-#tubo_verde .tub3 {
+.init #tubo_verde .tub3 {
     stroke-dashoffset: 1000;
     animation-delay: 4s;
 }
 
-#tubo_verde .tub5 {
+.init #tubo_verde .tub5 {
     stroke-dashoffset: 1000;
     animation-delay: 4.5s;
 }
-#probeta_5verde .gota {
+.init #probeta_5verde .gota {
     bottom: -87px;
     right: 11px;
 }
@@ -438,36 +438,36 @@ SECCION 5   PROBETAS
     stroke-dashoffset: 1000;
 }
 
-#tubo_naranja path, #tubo_naranja line {
+.init #tubo_naranja path, .init #tubo_naranja line {
     animation: tubo 3s linear forwards;
 }
 
-#tubo_naranja .tub7 {
+.init #tubo_naranja .tub7 {
     stroke-dashoffset: -600;
     animation-delay: 0;
 }
 
-#tubo_naranja .tub5 {
+.init #tubo_naranja .tub5 {
     stroke-dashoffset: -400;
     animation-delay: .2s;
 }
 
-#tubo_naranja .tub1 {
+.init #tubo_naranja .tub1 {
     stroke-dashoffset: -1000;
     animation-delay: .5s;
 }
 
-#tubo_naranja .tub2 {
+.init #tubo_naranja .tub2 {
     stroke-dashoffset: -500;
     animation-delay: .8s;
 }
 
-#tubo_naranja .tub4 {
+.init #tubo_naranja .tub4 {
     stroke-dashoffset: 1000;
     animation-delay: 4s;
 }
 
-#tubo_naranja .tub3 {
+.init #tubo_naranja .tub3 {
     stroke-dashoffset: 1000;
     animation-delay: 5s;
 }
@@ -489,7 +489,7 @@ SECCION 5   PROBETAS
     stroke-dashoffset: 1000;
 }
 
-#tubo_rojo path {
+.init #tubo_rojo path {
     animation: tubo 3s linear 8s forwards;
 }
 #probeta_5rojo .gota {
@@ -499,8 +499,8 @@ SECCION 5   PROBETAS
 
 /*Tubo morado*/
 #probeta_5morado {
-    left: 770px;
-    top: 7px;
+    left: 769px;
+    top: 14px;
     z-index: 3
 }
 
@@ -512,30 +512,30 @@ SECCION 5   PROBETAS
     stroke-dashoffset: 1000;
 }
 
-#tubo_morado path, #tubo_morado line {
+.init #tubo_morado path, .init #tubo_morado line {
     animation: tubo 3s linear forwards;
 }
 
 
 
 
-#tubo_morado .tub4 {
+.init #tubo_morado .tub4 {
     stroke-dashoffset: 1000;
     animation-delay: 4s;
 }
 
-#tubo_morado .tub3 {
+.init #tubo_morado .tub3 {
     stroke-dashoffset: 1000;
     animation-delay: 6s;
     
 }
-#tubo_morado .tub2 {
+.init #tubo_morado .tub2 {
     stroke-dashoffset: 1000;
     animation-delay: 8s;
     
 }
 
-#tubo_morado .tub1 {
+.init #tubo_morado .tub1 {
     stroke-dashoffset: 1000;
     animation-delay: 8.4s;
     
@@ -582,18 +582,20 @@ SECCION 5   PROBETAS
     margin-left: -114px;
     top: 295px;
 }
-
-#probeta_5naranja .gota {
+#seccion_5 .gota {
+    opacity: 0;
+}
+.init #probeta_5naranja .gota {
     animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 7s infinite;
     
 }
-#probeta_5morado .gota {
+.init #probeta_5morado .gota {
     animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
-#probeta_5verde .gota {
+.init #probeta_5verde .gota {
     animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 7.5s infinite;
 }
-#probeta_5rojo .gota {
+.init #probeta_5rojo .gota {
     animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 7s infinite;
 }
 /*=========================

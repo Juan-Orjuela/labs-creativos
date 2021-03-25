@@ -14,13 +14,20 @@ const respuestas = {};
 
 const textAreas = document.querySelectorAll(".lab_textarea");
 const proposito = document.getElementById("proposito");
+const flecha = document.querySelectorAll(".flecha_bajar");
 
-function presionar(e) {
+/*function presionar(e) {
   if (e.keyCode === 13) {
     this.blur();
   }
   console.log(e);
-}
+}*/
+//Flechas
+flecha.forEach((f) => {
+  f.addEventListener("click", (event) => {
+    fullpage_api.moveSectionDown();
+  });
+});
 //Guardado de sesion
 
 textAreas.forEach(function (el, index) {
@@ -35,11 +42,11 @@ textAreas.forEach(function (el, index) {
     }
   }
   //Usar Enter
-  el.addEventListener("keydown", (e) => {
+  /*el.addEventListener("keydown", (e) => {
     if (e.keyCode === 13) {
       el.blur();
     }
-  });
+  });*/
   el.addEventListener("blur", () => {
     if (el.value) {
       //Guardar respuestas en Obj respuestas
@@ -71,11 +78,11 @@ textAreas.forEach(function (el, index) {
 });
 
 //Popovers
-jQuery(function () {
+/*jQuery(function () {
   jQuery('[data-toggle="popover"]').popover({
     html: true,
   });
-});
+});*/
 
 //PROPOSITO
 
@@ -117,18 +124,17 @@ var x = 605;
 var y = 410;*/
 //var text = "Sancho, que no es un hombre más que otro si no hace más que otro. Estas borrascas que nos suceden son señales de que presto ha de serenar.";
 
-proposito.addEventListener("keydown", (event) => {
+/*proposito.addEventListener("keydown", (event) => {
   if (event.keyCode === 13) {
     proposito.blur();
   }
-});
+});*/
 proposito.addEventListener("blur", () => {
   if (proposito.value) {
     //crear_proposito(context, proposito.value, x, y, maxWidth, lineHeight);
     crear_proposito(context_escritorio, proposito.value, 605, 410, 610, 40, imagen_escritorio);
     crear_proposito(context_mobile, proposito.value, 215, 355, 320, 36, imagen_mobile);
-    btn_descarga_escritorio.classList.add("mostrar");
-    btn_descarga_mobile.classList.add("mostrar");
+    document.getElementById("caja-descarga").classList.add("mostrar");
   }
 });
 
