@@ -11,26 +11,49 @@ for (let i = 0; i < scenesSelector.length; i++) {
 }
 //Respuestas
 const respuestas = {};
+
 const textAreas = document.querySelectorAll(".lab_textarea");
 const proposito = document.getElementById("proposito");
+const flecha = document.querySelectorAll(".flecha_bajar");
 
-function presionar(e) {
+/*function presionar(e) {
   if (e.keyCode === 13) {
     this.blur();
   }
   console.log(e);
-}
+}*/
+//Flechas
+flecha.forEach((f) => {
+  f.addEventListener("click", (event) => {
+    fullpage_api.moveSectionDown();
+  });
+});
+//Guardado de sesion
+
 textAreas.forEach(function (el, index) {
-  el.addEventListener("keydown", (e) => {
+  //Verificar sesion
+  const id = el.id;
+  if (localStorage[id]) {
+    el.value = localStorage[id];
+    el.disabled = false;
+    document.getElementById(`probeta_${el.id}`).classList.add("anim");
+    if (el.classList.contains("final")) {
+      el.closest(".section").nextElementSibling.classList.remove("oculta");
+    }
+  }
+  //Usar Enter
+  /*el.addEventListener("keydown", (e) => {
     if (e.keyCode === 13) {
       el.blur();
     }
-  });
+  });*/
   el.addEventListener("blur", () => {
     if (el.value) {
       //Guardar respuestas en Obj respuestas
-      const id = el.id;
+
       respuestas[id] = el.value;
+
+      localStorage[id] = el.value;
 
       //Habilitar final
       if (el.classList.contains("previo")) {
@@ -55,11 +78,11 @@ textAreas.forEach(function (el, index) {
 });
 
 //Popovers
-$(function () {
-  $('[data-toggle="popover"]').popover({
+/*jQuery(function () {
+  jQuery('[data-toggle="popover"]').popover({
     html: true,
   });
-});
+});*/
 
 //PROPOSITO
 
@@ -101,18 +124,17 @@ var x = 605;
 var y = 410;*/
 //var text = "Sancho, que no es un hombre más que otro si no hace más que otro. Estas borrascas que nos suceden son señales de que presto ha de serenar.";
 
-proposito.addEventListener("keydown", (event) => {
+/*proposito.addEventListener("keydown", (event) => {
   if (event.keyCode === 13) {
     proposito.blur();
   }
-});
+});*/
 proposito.addEventListener("blur", () => {
   if (proposito.value) {
     //crear_proposito(context, proposito.value, x, y, maxWidth, lineHeight);
     crear_proposito(context_escritorio, proposito.value, 605, 410, 610, 40, imagen_escritorio);
     crear_proposito(context_mobile, proposito.value, 215, 355, 320, 36, imagen_mobile);
-    btn_descarga_escritorio.classList.add("mostrar");
-    btn_descarga_mobile.classList.add("mostrar");
+    document.getElementById("caja-descarga").classList.add("mostrar");
   }
 });
 

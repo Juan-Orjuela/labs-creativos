@@ -6,11 +6,30 @@ Author: Appicua
 Author URI: https://experienciascentrodeliderazgo.com/laboratorios
 Description: Tema personalizado para Laboratorios creativos.
 */
+
 body {
   margin: 0;
   background: #f7c800 url("https://experienciascentrodeliderazgo.com/laboratorios/wp-content/themes/labs-creativos/img/textura-amarilla.png") repeat center;
 }
-
+#loading {
+  position: fixed;
+  background: #f7c800 url("https://experienciascentrodeliderazgo.com/laboratorios/wp-content/themes/labs-creativos/img/textura-amarilla.png") repeat center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  transition: opacity 2s ease;
+}
+#loading img {
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#fullpage {
+  opacity: 0;
+  transition: opacity 2s ease 1s;
+}
 /*Animaciones*/
 @keyframes destello {
   from {
@@ -99,7 +118,8 @@ body {
   z-index: 3;
 }
 
-.anim .liquido_papa {
+.anim .liquido_papa,
+.init .liquido_papa {
   animation-name: llenarProbeta;
   animation-iteration-count: 1;
   animation-timing-function: cubic-bezier(0.2, 0.6, 0.8, 0.4);
@@ -107,7 +127,8 @@ body {
   animation-fill-mode: forwards;
 }
 
-.anim .liquido {
+.anim .liquido,
+.init .liquido {
   animation-name: ondasProbeta;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -260,8 +281,9 @@ body {
 }
 
 #seccion_1 .el_1_1 {
-  right: calc(100% - 15vw);
+  right: calc(100% - 150px);
   top: -110px;
+  z-index: 2;
 }
 
 #seccion_1 .el_1_2 {
@@ -551,7 +573,28 @@ body {
   background: url("https://experienciascentrodeliderazgo.com/laboratorios/wp-content/themes/labs-creativos/img/fondo_probeta_3.png") no-repeat center bottom;
   background-size: contain;
 }
+#probeta_pasion .flama {
+  position: absolute;
+  bottom: -70px;
+  width: 50px;
+  left: 60px;
 
+  transform-origin: center bottom;
+  opacity: 0;
+}
+.anim .flama {
+  animation: flama 0.5s ease-in-out infinite alternate;
+}
+@keyframes flama {
+  from {
+    transform: scale(0.85) skew(4deg);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 #probeta_pasion .liquido {
   fill: #f04100;
   width: 164px;
@@ -907,13 +950,24 @@ SECCION 2
 #probeta_loQueAmas2.anim .gota {
   animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
+@keyframes ondasProbeta-s21 {
+  0% {
+    transform: translate(-100px, 0);
+  }
 
+  100% {
+    transform: translate(0, 0);
+  }
+}
 #probeta_loQueAmas2 .liquido {
   fill: #24acec;
 }
 
 #prob_loQueAmas2 {
   left: 4px;
+}
+#probeta_loQueAmas2.anim .liquido {
+  animation-name: ondasProbeta-s21;
 }
 
 #probeta_loQueElMundoNecesita {
@@ -1032,6 +1086,7 @@ SECCION 2
   right: 380px;
   top: 300px;
   z-index: 4;
+  width: 93px;
 }
 
 .flotante {
@@ -1400,11 +1455,15 @@ SECCION 5
   width: 1513px;
   margin-left: -8%;
 }
+#lab_fondo_5 {
+  position: relative;
+  top: -21px;
+}
 /*seccion 5 textareas*/
 #seccion_5 #proposito {
   left: 50%;
   margin-left: -110px;
-  bottom: -40px;
+  bottom: -10px;
   box-shadow: 0 0 0 4px #3858b2 inset;
   width: 360px;
   min-width: 360px;
@@ -1482,13 +1541,14 @@ SECCION 5
 }
 .contenedor-login .card {
   position: fixed;
-
+  background: transparent;
   left: 50%;
   opacity: 0;
   top: 75vh;
   transform: translate(-50%, 0);
   z-index: 10;
   animation: card 1s ease-out 3s forwards;
+  border: none;
 }
 .contenedor-login .card img {
   max-height: 37vh;
@@ -1526,6 +1586,7 @@ SECCION 5
   top: 30.6%;
   left: 31.4%;
 }
+
 .contenedor-login .mano a {
   animation: mano 2s infinite;
 }
@@ -1542,8 +1603,50 @@ SECCION 5
     transform: rotate(0);
   }
 }
+@media screen and (min-width: 1920px) {
+  .contenedor-login .mano {
+    top: 370px;
+  }
+  .contenedor-login .timon {
+    top: 340px;
+  }
+}
 .contenedor-login .timon img {
   animation: timon 2s ease 1s;
+}
+#ingreso {
+  font-family: Trebuchet MS;
+}
+#ingreso .modal-content {
+  background: #f7c800 url("https://experienciascentrodeliderazgo.com/laboratorios/wp-content/themes/labs-creativos/img/el-moleculas.png") no-repeat right bottom;
+}
+#ingreso h5 {
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding-left: 42px;
+}
+#ingreso .modal-header {
+  border-bottom: 1px solid white;
+}
+#ingreso .um input[type="submit"].um-button {
+  background-color: #1b95a2;
+  border-radius: 200px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em;
+}
+#ingreso .close span {
+  background: white;
+  width: 27px;
+  display: inline-block;
+  border-radius: 100%;
+  padding-bottom: 3px;
+  box-sizing: border-box;
+}
+#ingreso .close:focus {
+  outline: none;
 }
 /*PROPOSITO*/
 #canvas_escritorio {
@@ -1568,43 +1671,56 @@ SECCION 5
 #canvas_img_mobile {
   display: none;
 }
+#caja-descarga {
+  position: absolute;
+  left: calc(50% + 170px);
+  bottom: 40px;
+  z-index: 99;
+  width: 270px;
+}
+#caja-descarga span {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Trebuchet MS, sans-serif;
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 2s ease;
+}
 #descarga_escritorio,
 #descarga_mobile {
   background: #24aded;
-  border: 4px solid #1b203c;
-  position: absolute;
-  left: calc(50% + 200px);
-  bottom: 180px;
+  position: relative;
+  display: block;
   z-index: 20;
   font-size: 18px;
-  font-family: sans-serif;
+  font-family: Trebuchet MS, sans-serif;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 16px;
+  padding: 8px 12px;
   border-radius: 24px;
   color: white;
   letter-spacing: 0.05em;
   cursor: pointer;
-  margin-bottom: 40px;
-  opacity: 0;
+  text-align: center;
 
+  text-decoration: none;
+  opacity: 0;
   pointer-events: none;
-  transition: all 2s ease;
+  transition: all 2s ease 0.5s;
 }
 #descarga_mobile {
   background: #9c328f;
-  border: 4px solid #1b203c;
-  bottom: 80px;
+  margin-top: 20px;
   transition-delay: 1s;
 }
-#descarga_escritorio.mostrar,
-#descarga_mobile.mostrar {
+.mostrar #descarga_escritorio,
+.mostrar #descarga_mobile,
+#caja-descarga.mostrar span {
   opacity: 1;
-  display: block;
-  margin-bottom: 0;
   pointer-events: initial;
 }
-/*ESTILOS PROBETAS*/
 .probeta_container {
   background-repeat: no-repeat;
   background-position: center;
@@ -1998,36 +2114,36 @@ SECCION 5   PROBETAS
   stroke-dashoffset: 1000;
 }
 
-#tubo_verde path,
-#tubo_verde line {
+.init #tubo_verde path,
+.init #tubo_verde line {
   animation: tubo 3s linear forwards;
 }
 
-#tubo_verde .tub1 {
+.init #tubo_verde .tub1 {
   stroke-dashoffset: -1000;
   animation-delay: 0;
 }
 
-#tubo_verde .tub2 {
+.init #tubo_verde .tub2 {
   stroke-dashoffset: -1000;
   animation-delay: 0.5s;
 }
 
-#tubo_verde .tub4 {
+.init #tubo_verde .tub4 {
   stroke-dashoffset: 1000;
   animation-delay: 3.5s;
 }
 
-#tubo_verde .tub3 {
+.init #tubo_verde .tub3 {
   stroke-dashoffset: 1000;
   animation-delay: 4s;
 }
 
-#tubo_verde .tub5 {
+.init #tubo_verde .tub5 {
   stroke-dashoffset: 1000;
   animation-delay: 4.5s;
 }
-#probeta_5verde .gota {
+.init #probeta_5verde .gota {
   bottom: -87px;
   right: 11px;
 }
@@ -2047,37 +2163,37 @@ SECCION 5   PROBETAS
   stroke-dashoffset: 1000;
 }
 
-#tubo_naranja path,
-#tubo_naranja line {
+.init #tubo_naranja path,
+.init #tubo_naranja line {
   animation: tubo 3s linear forwards;
 }
 
-#tubo_naranja .tub7 {
+.init #tubo_naranja .tub7 {
   stroke-dashoffset: -600;
   animation-delay: 0;
 }
 
-#tubo_naranja .tub5 {
+.init #tubo_naranja .tub5 {
   stroke-dashoffset: -400;
   animation-delay: 0.2s;
 }
 
-#tubo_naranja .tub1 {
+.init #tubo_naranja .tub1 {
   stroke-dashoffset: -1000;
   animation-delay: 0.5s;
 }
 
-#tubo_naranja .tub2 {
+.init #tubo_naranja .tub2 {
   stroke-dashoffset: -500;
   animation-delay: 0.8s;
 }
 
-#tubo_naranja .tub4 {
+.init #tubo_naranja .tub4 {
   stroke-dashoffset: 1000;
   animation-delay: 4s;
 }
 
-#tubo_naranja .tub3 {
+.init #tubo_naranja .tub3 {
   stroke-dashoffset: 1000;
   animation-delay: 5s;
 }
@@ -2100,7 +2216,7 @@ SECCION 5   PROBETAS
   stroke-dashoffset: 1000;
 }
 
-#tubo_rojo path {
+.init #tubo_rojo path {
   animation: tubo 3s linear 8s forwards;
 }
 #probeta_5rojo .gota {
@@ -2110,8 +2226,8 @@ SECCION 5   PROBETAS
 
 /*Tubo morado*/
 #probeta_5morado {
-  left: 770px;
-  top: 7px;
+  left: 769px;
+  top: 14px;
   z-index: 3;
 }
 
@@ -2124,26 +2240,26 @@ SECCION 5   PROBETAS
   stroke-dashoffset: 1000;
 }
 
-#tubo_morado path,
-#tubo_morado line {
+.init #tubo_morado path,
+.init #tubo_morado line {
   animation: tubo 3s linear forwards;
 }
 
-#tubo_morado .tub4 {
+.init #tubo_morado .tub4 {
   stroke-dashoffset: 1000;
   animation-delay: 4s;
 }
 
-#tubo_morado .tub3 {
+.init #tubo_morado .tub3 {
   stroke-dashoffset: 1000;
   animation-delay: 6s;
 }
-#tubo_morado .tub2 {
+.init #tubo_morado .tub2 {
   stroke-dashoffset: 1000;
   animation-delay: 8s;
 }
 
-#tubo_morado .tub1 {
+.init #tubo_morado .tub1 {
   stroke-dashoffset: 1000;
   animation-delay: 8.4s;
 }
@@ -2188,17 +2304,19 @@ SECCION 5   PROBETAS
   margin-left: -114px;
   top: 295px;
 }
-
-#probeta_5naranja .gota {
+#seccion_5 .gota {
+  opacity: 0;
+}
+.init #probeta_5naranja .gota {
   animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 7s infinite;
 }
-#probeta_5morado .gota {
+.init #probeta_5morado .gota {
   animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 6s infinite;
 }
-#probeta_5verde .gota {
+.init #probeta_5verde .gota {
   animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 7.5s infinite;
 }
-#probeta_5rojo .gota {
+.init #probeta_5rojo .gota {
   animation: goteo 2s cubic-bezier(0.71, 0.06, 1, 1) 7s infinite;
 }
 /*=========================
@@ -2303,35 +2421,40 @@ SECCION 5   GIFS
   left: 936px;
   border-radius: 0 0 12px 0;
 }
-/*ESTILOS FLOTANTES*/
 .comp {
   position: absolute;
 }
+
 /*=========================
-  SECCION 2   FLOTANTES
-  =========================*/
+SECCION 2   FLOTANTES
+=========================*/
 .ef_s2_izq {
   right: calc(100% - 40px);
   top: 18%;
 }
+
 .ef_s2_der {
   left: calc(100% - 100px);
   top: 28%;
 }
+
 .el_2_1 {
-  left: calc(50vw - 40px);
-  bottom: -12vh;
+  left: calc(50vw + 40px);
+  bottom: -140px;
 }
+
 .el_2_1 .r {
   top: 26px;
   left: 8px;
 }
+
 /*Comp*/
 #seccion_2 .comp1 {
   top: 30px;
   left: -220px;
   animation: rotar 4s linear infinite;
 }
+
 #seccion_2 .comp2 {
   top: 30px;
   left: -60px;
@@ -2339,34 +2462,40 @@ SECCION 5   GIFS
 }
 
 /*=========================
-  SECCION 3   FLOTANTES
-  =========================*/
+SECCION 3   FLOTANTES
+=========================*/
 .el_3_1 {
   left: calc((100vw - 1360px) / 2 * -1);
   top: 12%;
 }
+
 .el_3_1 .r {
   top: 8px;
   left: 1px;
 }
+
 .gif_s3_1 {
   top: 14px;
   left: 88px;
   width: 54px;
 }
+
 .el_3_2 {
   right: -40px;
   top: 33%;
 }
+
 .el_3_2 .r {
   top: 8px;
   left: 8px;
 }
+
 .gif_s3_2 {
   left: 88px;
   top: 108px;
   width: 66px;
 }
+
 .el_3_2 .gce_s3_2 {
   width: 126px;
   height: 43px;
@@ -2379,10 +2508,12 @@ SECCION 5   GIFS
   left: 60px;
   bottom: -170px;
 }
+
 .el_3_3 .r {
   top: 8px;
   left: 9px;
 }
+
 .el_3_3 .gce_s3_3 {
   width: 126px;
   height: 43px;
@@ -2390,6 +2521,7 @@ SECCION 5   GIFS
   left: 79px;
   border-radius: 5px;
 }
+
 .el_3_3 .flotante {
   top: 49px;
   left: -140px;
@@ -2397,20 +2529,23 @@ SECCION 5   GIFS
   width: 150px;
   z-index: 12;
 }
+
 /*=========================
-  SECCION 4   FLOTANTES
-  =========================*/
+SECCION 4   FLOTANTES
+=========================*/
 .ef_s4_izq {
   right: calc(100% - 80px);
   top: 0;
 }
+
 .ef_s4_der {
   left: calc(100% - 100px);
   top: 18%;
 }
+
 /*=========================
-  SECCION 5   FLOTANTES
-  =========================*/
+SECCION 5   FLOTANTES
+=========================*/
 .el_5_1 {
   left: calc((100vw - 1360px) / 2 * -1);
   bottom: 25px;
@@ -2420,6 +2555,7 @@ SECCION 5   GIFS
   top: 0px;
   left: 0px;
 }
+
 .el_5_1 .gce_s5_1_1 {
   width: 94px;
   height: 43px;
@@ -2427,16 +2563,19 @@ SECCION 5   GIFS
   left: 60px;
   border-radius: 9px;
 }
+
 .gif_s5_1_2 {
   left: 146px;
   top: 240px;
   width: 66px;
 }
+
 .gif_s5_1_3 {
   left: 250px;
   top: 408px;
   width: 66px;
 }
+
 .el_5_1 .gce_s5_1_4 {
   width: 113px;
   height: 43px;
@@ -2444,19 +2583,23 @@ SECCION 5   GIFS
   left: 149px;
   border-radius: 9px;
 }
+
 .el_5_2 {
   left: 100%;
   top: -10%;
 }
+
 .el_5_2 .r {
   top: 8px;
   left: 8px;
 }
+
 .el_5_3 {
   right: calc((100vw - 1360px) / 2 * -1);
   bottom: 20px;
   margin-right: -20px;
 }
+
 .el_5_3 .r {
   top: 0px;
   left: 8px;
@@ -2475,11 +2618,13 @@ SECCION 5   GIFS
   top: 349px;
   width: 54px;
 }
+
 .gif_s5_3_3 {
   left: 109px;
   top: 429px;
   width: 59px;
 }
+
 .gif_s5_3_4 {
   left: 38px;
   top: 643px;
@@ -2491,56 +2636,185 @@ SECCION 5   GIFS
   bottom: 50px;
   margin-left: -60px;
 }
+
 .ef_s5_der_top {
   right: calc((100vw - 1360px) / 2 * -1);
   bottom: 45%;
   margin-right: -60px;
 }
+
 .ef_s5_der_bot {
   right: -80px;
   bottom: 15px;
 }
+
 /*Pildoras*/
 .btn_pildora {
   position: absolute;
   cursor: pointer;
-  z-index: 10;
+  z-index: 9;
   transform: scale(0.87);
+}
+
+.pil_trigger {
   animation: destello 1s ease infinite alternate;
 }
+
+.btn_pildora .pil_contenido {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.btn_pildora:focus .pil_contenido,
+.btn_pildora:hover .pil_contenido {
+  opacity: 1;
+}
+
 .btn_pildora:focus {
   outline: none;
 }
+
 .btn_pil_s1_1 {
   right: 40px;
   top: 100px;
 }
+
 .pil_s1_1 {
-  margin-left: -200px !important;
+  right: 100%;
+  top: 0;
 }
+
 .popover-header {
   display: none;
 }
+
 /*Pil 2*/
 .btn_pil_s1_2 {
   left: 200px;
   top: 305px;
 }
+
 .pil_s1_2 {
-  margin-left: -240px !important;
-  margin-top: -390px !important;
+  top: 0;
+  left: 100%;
+  margin-left: 15px;
+  transform: translateY(-50%);
 }
+
+.btn_pil_s1_2_2 {
+  width: 84px;
+  height: 30px;
+  position: absolute;
+  display: block;
+  left: 215px;
+  top: 368px;
+  z-index: 10;
+}
+
 /*Pil 3*/
 .btn_pil_s2_2 {
   right: 310px;
-  top: 355px;
+  top: 317px;
 }
+
+.pil_s2_2 {
+  right: 100%;
+  transform: translateY(-50%);
+  max-width: 70vw;
+}
+
 /*Pil 4*/
 .btn_pil_s3_2 {
-  right: 634px;
-  top: 385px;
+  right: 622px;
+  top: 377px;
 }
+
 .pil_s3_2 {
-  margin-left: -180px !important;
-  margin-top: -420px !important;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: -55px;
+  width: 900px;
+  max-width: 140vh;
+}
+.relleno {
+  position: absolute;
+  bottom: -35px;
+  right: 55%;
+}
+.relleno:first-child {
+  left: 75%;
+}
+/*Flechas*/
+@keyframes bajar {
+  from {
+    top: -90px;
+  }
+
+  to {
+    top: -50px;
+  }
+}
+
+.flecha_bajar {
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  margin-left: -35px;
+  width: 50px;
+  z-index: 999;
+  animation: bajar 1s linear infinite alternate;
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.oculta .flecha_bajar {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.flecha_bajar img {
+  max-width: 100%;
+}
+
+.flecha_bajar:hover {
+  animation-play-state: paused;
+}
+
+/*RESPONSIVE*/
+@media screen and (max-width: 1600px) {
+  .el_2_1 {
+    left: calc(50vw + 120px);
+    bottom: -140px;
+  }
+
+  .el_3_3 .flotante {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  #seccion_1 .elementos_flotantes > img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #clip_1_1,
+  #clip_1_1s {
+    width: 770px;
+    x: calc(50vw - 300px);
+  }
+
+  .el_2_1 {
+    left: calc(50vw + 100px);
+    bottom: -140px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .relleno {
+    display: none;
+  }
 }
